@@ -223,3 +223,23 @@ UPDATE grocery_store set quantity=? where Item = ? [22018-214]
 2023-09-21 16:41:08 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "apple"; SQL statement:
 UPDATE grocery_store set quantity=? where Item = ? [22018-214]
+2023-09-28 16:33:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+insert into grocery_info(item_id, Item, farm_name, brand, organized,contact)values (1, 'APPLE','farm_1','new','111-222-2222') [21002-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:575)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.tools.RunScript.execute(RunScript.java:169)
+	at Util.ConnectionSingleton.resetTestDatabase(ConnectionSingleton.java:64)
+	at Util.ConnectionSingleton.getConnection(ConnectionSingleton.java:44)
+	at Application.main(Application.java:13)
