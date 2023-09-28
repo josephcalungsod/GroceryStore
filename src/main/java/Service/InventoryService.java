@@ -54,5 +54,9 @@ public class InventoryService {
         List<Inventory> allItems = inventoryDAO.getAllItems();
         return allItems;
     }
+    public List<Inventory> getAllItemsByType(String type) {
+        List<Inventory> allItemsByType = inventoryDAO.getAllItemsByType(type);
+        return allItemsByType;
+    }
 
 }

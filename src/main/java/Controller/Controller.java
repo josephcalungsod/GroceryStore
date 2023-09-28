@@ -22,6 +22,7 @@ public class Controller {
 //        they will interact with JSON formats of the flight data model
         app.get("/inventory", this::getAllInventoryHandler);
         app.get("/inventory/{item}", this::getInventoryByNameHandler);
+        app.get("/inventory/type/{type}", this::getAllInventoryByTypeHandler);
         app.post("/inventory", this::postInventoryHandler);
         app.get("/qparam-example", this::qparamtest);
         app.put("/inventory", this::putInventoryHandler);
@@ -36,6 +37,20 @@ public class Controller {
     private void getInventoryByNameHandler(Context context){
         String item = context.pathParam("item");
         Inventory inventory = inventoryService.getItemByName(item);
+        if(inventory == null){
+            context.status(404);
+        }else{
+            context.json(inventory);
+        }
+    }
+
+    /**
+     * Retrieve all inventory by type
+     * @param context
+     */
+    private void getAllInventoryByTypeHandler(Context context){
+        String type = context.pathParam("type");
+        List<Inventory> inventory= inventoryService.getAllItemsByType(type);
         if(inventory == null){
             context.status(404);
         }else{

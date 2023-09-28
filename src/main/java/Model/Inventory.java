@@ -4,6 +4,7 @@ public class Inventory {
     private String item;
     private double price;
     private int quantity;
+    private String type;
 
 
     public Inventory(){
@@ -16,15 +17,26 @@ public class Inventory {
      * @param price
      * @param quantity
      */
-    public Inventory(String item, double price, int quantity){
+    public Inventory(String item, String type, double price, int quantity){
         this.item = item;
+        this.type = type;
         this.price= price;
         this.quantity = quantity;
+
     }
     public Inventory(String item, int quantity){
         this.item = item;
         this.quantity = quantity;
     }
+
+    public Inventory(String type) {
+        this.type = type;
+    }
+
+    //    public Inventory(String type){
+//        this.type = type;
+//        
+//    }
     public String getItem() {
         return item;
     }
@@ -53,6 +65,7 @@ public class Inventory {
     public String toString() {
         return "Inventory{" +
                 "item='" + item + '\'' +
+                " type='" + type + '\'' +
                 ", price=" + price +
                 ", quantity=" + quantity +
                 '}';

@@ -21,7 +21,7 @@ public class InventoryDAOTest extends TestCase {
     Inventory inventory;
 
     public void testAddItem() {
-        inventory=new Inventory("fruit", 11.1, 100);
+        inventory=new Inventory("strawberry", "fruit", 11.1, 100);
         String item=inventory.getItem();
         inventoryDAO.addItem(inventory);
         double actual=inventoryDAO.getItemByName(item).getPrice();

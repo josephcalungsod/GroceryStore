@@ -4,52 +4,54 @@ drop table grocery_info if exists;
 create table if not exists grocery_store
 (
     Item varchar(255) not null primary key,
+    Type varchar(255),
     Price double,
     Quantity int
 );
 
 -- produce
-insert into grocery_store (Item, Price, Quantity) values ('apple', 1.00, 10);
-insert into grocery_store (Item, Price, Quantity) values ('banana', 1.50, 12);
-insert into grocery_store (Item, Price, Quantity) values ('milk', 4.00, 20);
-insert into grocery_store (Item, Price, Quantity) values ('eggs', 2.30, 30);
+insert into grocery_store (Item, Type, Price, Quantity) values ('apple', 'produce', 1.00, 10);
+insert into grocery_store (Item, Type, Price, Quantity) values ('banana', 'produce', 1.50, 12);
+insert into grocery_store (Item, Type, Price, Quantity) values ('milk', 'produce', 4.00, 20);
+insert into grocery_store (Item, Type, Price, Quantity) values ('eggs', 'produce', 2.30, 30);
 
--- meat/seafood
-insert into grocery_store (Item, Price, Quantity) values ('steak', 3.30, 35);
-insert into grocery_store (Item, Price, Quantity) values ('chicken', 2.24, 32);
-insert into grocery_store (Item, Price, Quantity) values ('pork', 2.30, 31);
-insert into grocery_store (Item, Price, Quantity) values ('fish', 3.00, 20);
+-- meat
+insert into grocery_store (Item, Type, Price, Quantity) values ('steak', 'meat', 3.30, 35);
+insert into grocery_store (Item, Type, Price, Quantity) values ('chicken', 'meat', 2.24, 32);
+insert into grocery_store (Item, Type, Price, Quantity) values ('pork', 'meat', 2.30, 31);
+
 
 -- baby products
-insert into grocery_store (Item, Price, Quantity) values ('diapers', 25.00, 15);
-insert into grocery_store (Item, Price, Quantity) values ('baby bottle', 3.00, 10);
-insert into grocery_store (Item, Price, Quantity) values ('formula', 5.00, 12);
+insert into grocery_store (Item, Type, Price, Quantity) values ('diapers', 'baby products', 25.00, 15);
+insert into grocery_store (Item, Type, Price, Quantity) values ('baby bottle', 'baby products', 3.00, 10);
+insert into grocery_store (Item, Type, Price, Quantity) values ('formula', 'baby products', 5.00, 12);
 
 -- international
-insert into grocery_store (Item, Price, Quantity) values ('rice', 6.00, 8);
-insert into grocery_store (Item, Price, Quantity) values ('taco shells', 2.40, 7);
-insert into grocery_store (Item, Price, Quantity) values ('spaghetti', 1.30, 14);
-insert into grocery_store (Item, Price, Quantity) values ('fettuccine', 1.20, 16);
+insert into grocery_store (Item, Type, Price, Quantity) values ('rice', 'international', 6.00, 8);
+insert into grocery_store (Item, Type, Price, Quantity) values ('taco shells', 'international', 2.40, 7);
+insert into grocery_store (Item, Type, Price, Quantity) values ('spaghetti', 'international', 1.30, 14);
+insert into grocery_store (Item, Type, Price, Quantity) values ('fettuccine', 'international', 1.20, 16);
 
 -- candy
-insert into grocery_store (Item, Price, Quantity) values ('lollipop', 2.30, 30);
-insert into grocery_store (Item, Price, Quantity) values ('kit kat', 2.30, 30);
-insert into grocery_store (Item, Price, Quantity) values ('jolly ranchers', 1.25, 5);
+insert into grocery_store (Item, Type, Price, Quantity) values ('lollipop', 'candy', 2.30, 30);
+insert into grocery_store (Item, Type, Price, Quantity) values ('kit kat', 'candy', 2.30, 30);
+insert into grocery_store (Item, Type, Price, Quantity) values ('jolly ranchers', 'candy', 1.25, 5);
 
--- animal food
-insert into grocery_store (Item, Price, Quantity) values ('dog food', 20.00, 5);
-insert into grocery_store (Item, Price, Quantity) values ('cat food', 18.00, 7);
+-- animal products
+insert into grocery_store (Item, Type, Price, Quantity) values ('dog food', 'animal products', 20.00, 5);
+insert into grocery_store (Item, Type, Price, Quantity) values ('cat food', 'animal products', 18.00, 7);
+insert into grocery_store (Item, Type, Price, Quantity) values ('cat litter', 'animal products', 16.00, 6);
 
 -- hygiene items
-insert into grocery_store (Item, Price, Quantity) values ('soap', 0.55, 55);
-insert into grocery_store (Item, Price, Quantity) values ('toothpaste', 3.50, 40);
-insert into grocery_store (Item, Price, Quantity) values ('shampoo', 4.00, 35);
+insert into grocery_store (Item, Type, Price, Quantity) values ('soap', 'hygiene', 0.55, 55);
+insert into grocery_store (Item, Type, Price, Quantity) values ('toothpaste', 'hygiene', 3.50, 40);
+insert into grocery_store (Item, Type, Price, Quantity) values ('shampoo', 'hygiene', 4.00, 35);
 
 -- paper products
-insert into grocery_store (Item, Price, Quantity) values ('paper towels', 2.00, 44);
-insert into grocery_store (Item, Price, Quantity) values ('toilet paper', 2.00, 28);
-insert into grocery_store (Item, Price, Quantity) values ('paper plates', 2.00, 22);
-insert into grocery_store (Item, Price, Quantity) values ('napkins', 0.80, 50);
+insert into grocery_store (Item, Type, Price, Quantity) values ('paper towels', 'paper products', 2.00, 44);
+insert into grocery_store (Item, Type, Price, Quantity) values ('toilet paper', 'paper products', 2.00, 28);
+insert into grocery_store (Item, Type, Price, Quantity) values ('paper plates', 'paper products', 2.00, 22);
+insert into grocery_store (Item, Type, Price, Quantity) values ('napkins', 'paper products', 0.80, 50);
 
 
 CREATE TABLE IF NOT EXISTS grocery_info (

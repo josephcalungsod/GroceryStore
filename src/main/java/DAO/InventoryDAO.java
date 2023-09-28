@@ -53,9 +53,10 @@ public class InventoryDAO {
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 String dbItem = rs.getString("item");
+                String dbType = rs.getString("type");
                 double dbPrice = rs.getDouble("price");
                 int dbQuantity = rs.getInt("quantity");
-                Inventory dbInventory = new Inventory(dbItem, dbPrice, dbQuantity);
+                Inventory dbInventory = new Inventory(dbItem, dbType, dbPrice, dbQuantity);
                 return dbInventory;
             }
         }catch(SQLException e){
@@ -111,10 +112,36 @@ public class InventoryDAO {
 
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
+                String dbItem = rs.getString("Item");
+                String dbType = rs.getString("Type");
+                double dbPrice = rs.getDouble("Price");
+                int dbQuantity = rs.getInt("Quantity");
+                Inventory dbInventory = new Inventory(dbItem, dbType, dbPrice, dbQuantity);
+                inventoryList.add(dbInventory);
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return inventoryList;
+    }
+
+    /**
+     * This method is used to retrieve all items by type
+     * @return
+     */
+    public List<Inventory> getAllItemsByType(String type) {
+        List<Inventory> inventoryList = new ArrayList<>();
+        try{
+            PreparedStatement ps = conn.prepareStatement("select * from grocery_store where type = ?");
+            ps.setString(1, type);
+
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
                 String dbItem = rs.getString("item");
+                String dbType = rs.getString("type");
                 double dbPrice = rs.getDouble("price");
                 int dbQuantity = rs.getInt("quantity");
-                Inventory dbInventory = new Inventory(dbItem, dbPrice, dbQuantity);
+                Inventory dbInventory = new Inventory(dbItem, dbType, dbPrice, dbQuantity);
                 inventoryList.add(dbInventory);
             }
         }catch(SQLException e){

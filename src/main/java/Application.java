@@ -27,11 +27,13 @@ public class Application {
                 // add item to service class
                 System.out.println("(1) ADD: Enter item: ");
                 String item = scan.next();
+                System.out.println("(1) ADD: Enter type: ");
+                String type = scan.next();
                 System.out.println("(1) ADD: Enter price: ");
                 double price = scan.nextDouble();
                 System.out.println("(1) ADD: Enter quantity: ");
                 int quantity = scan.nextInt();
-                Inventory inventory = new Inventory(item, price, quantity);
+                Inventory inventory = new Inventory(item, type, price, quantity);
 
                 System.out.println("\n");
                 inventoryService.addItem(inventory);
