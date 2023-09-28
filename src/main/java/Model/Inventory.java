@@ -9,6 +9,13 @@ public class Inventory {
     public Inventory(){
 
     }
+
+    /**
+     *
+     * @param item
+     * @param price
+     * @param quantity
+     */
     public Inventory(String item, double price, int quantity){
         this.item = item;
         this.price= price;
