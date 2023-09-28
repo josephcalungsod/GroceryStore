@@ -24,7 +24,8 @@ public class Controller {
         app.get("/inventory/{item}", this::getInventoryByNameHandler);
         app.post("/inventory", this::postInventoryHandler);
         app.get("/qparam-example", this::qparamtest);
-        app.put("/inventory/{item}", this::putInventoryHandler);
+        app.put("/inventory", this::putInventoryHandler);
+        //app.delete("/inventory/{item}", this::deleteInventoryHandler);
         return app;
     }
 
@@ -56,11 +57,12 @@ public class Controller {
         }
 
     }
+   
     private void putInventoryHandler(Context context){
         ObjectMapper om = new ObjectMapper();
         try {
             Inventory f = om.readValue(context.body(), Inventory.class);
-            inventoryService.addItem(f);
+            inventoryService.updateItem(f);
 //            resource created response
             context.status(201);
         }catch(JsonProcessingException e){
@@ -77,3 +79,14 @@ public class Controller {
     }
 
 }
+//Delete function is not desired,but passed the test.
+//    private void deleteInventoryHandler(Context context){
+//        String item = context.pathParam("item");
+//        inventoryService.deleteItem(item);
+//        Inventory inventory = inventoryService.getItemByName(item);
+//        if(inventory == null){
+//            context.status(404);
+//        }else{
+//            context.json(inventory);
+//        }
+//    }
