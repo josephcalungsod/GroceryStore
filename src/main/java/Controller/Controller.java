@@ -24,7 +24,7 @@ public class Controller {
         app.get("/inventory/{item}", this::getInventoryByNameHandler);
         app.post("/inventory", this::postInventoryHandler);
         app.get("/qparam-example", this::qparamtest);
-
+        app.put("/inventory/{item}", this::putInventoryHandler);
         return app;
     }
 
@@ -42,6 +42,21 @@ public class Controller {
         }
     }
     private void postInventoryHandler(Context context){
+        ObjectMapper om = new ObjectMapper();
+        try {
+            Inventory f = om.readValue(context.body(), Inventory.class);
+            inventoryService.addItem(f);
+//            resource created response
+            context.status(201);
+        }catch(JsonProcessingException e){
+//            if the json couldn't be processed, then the user sent us a faulty JSON,
+//            so return a 400
+            e.printStackTrace();
+            context.status(400);
+        }
+
+    }
+    private void putInventoryHandler(Context context){
         ObjectMapper om = new ObjectMapper();
         try {
             Inventory f = om.readValue(context.body(), Inventory.class);
