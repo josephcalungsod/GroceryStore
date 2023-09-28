@@ -1,18 +1,10 @@
 package Model;
 
-import Util.ConnectionSingleton;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Objects;
-
 public class Inventory {
     private String item;
     private double price;
     private int quantity;
-    Connection conn = ConnectionSingleton.getConnection();
+
 
     public Inventory(){
 
