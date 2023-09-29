@@ -2,10 +2,7 @@ package DAO;
 
 import Model.Inventory;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,10 +25,11 @@ public class InventoryDAO {
      */
     public void addItem(Inventory inventory) {
         try {
-        PreparedStatement ps = conn.prepareStatement("insert into grocery_store (Item, Price, Quantity) values (?, ?, ?)");
+        PreparedStatement ps = conn.prepareStatement("insert into grocery_store (Item, Type, Price, Quantity) values (?, ?, ?, ?)");
         ps.setString(1, inventory.getItem());
-        ps.setDouble(2, inventory.getPrice());
-        ps.setInt(3, inventory.getQuantity());
+        ps.setString(2, inventory.getType());
+        ps.setDouble(3, inventory.getPrice());
+        ps.setInt(4, inventory.getQuantity());
         ps.executeUpdate();
         }catch (SQLException e) {
             throw new RuntimeException(e);
@@ -47,7 +45,10 @@ public class InventoryDAO {
      */
     public Inventory getItemByName(String item) {
         try{
-            PreparedStatement ps = conn.prepareStatement("select * from grocery_store where item = ?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM grocery_store "+
+                                                "left join grocery_info "+
+                                                "ON grocery_store.item = grocery_info.item "+
+                                                 "WHERE grocery_store.item = ?");
             ps.setString(1, item);
 
             ResultSet rs = ps.executeQuery();
@@ -56,7 +57,12 @@ public class InventoryDAO {
                 String dbType = rs.getString("type");
                 double dbPrice = rs.getDouble("price");
                 int dbQuantity = rs.getInt("quantity");
-                Inventory dbInventory = new Inventory(dbItem, dbType, dbPrice, dbQuantity);
+                int dbItem_id= rs.getInt("item_id");
+                String dbFarm_name = rs.getString("farm_name");
+                String dbBrand= rs.getString("brand");
+                String dbContact = rs.getString("contact");
+
+                Inventory dbInventory = new Inventory(dbItem, dbType, dbPrice, dbQuantity, dbItem_id, dbFarm_name, dbBrand, dbContact);
                 return dbInventory;
             }
         }catch(SQLException e){
@@ -108,15 +114,22 @@ public class InventoryDAO {
     public List<Inventory> getAllItems() {
         List<Inventory> inventoryList = new ArrayList<>();
         try{
-            PreparedStatement ps = conn.prepareStatement("select * from grocery_store");
-
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM grocery_store "+
+                    "left join grocery_info "+
+                    "ON grocery_store.item = grocery_info.item  ");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
+                System.out.println("no return");
                 String dbItem = rs.getString("Item");
                 String dbType = rs.getString("Type");
                 double dbPrice = rs.getDouble("Price");
                 int dbQuantity = rs.getInt("Quantity");
-                Inventory dbInventory = new Inventory(dbItem, dbType, dbPrice, dbQuantity);
+                int dbItem_id= rs.getInt("Item_id");
+                String dbFarm_name = rs.getString("Farm_name");
+                String dbBrand= rs.getString("Brand");
+                String dbContact = rs.getString("Contact");
+
+                Inventory dbInventory = new Inventory(dbItem, dbType, dbPrice, dbQuantity, dbItem_id, dbFarm_name, dbBrand, dbContact);
                 inventoryList.add(dbInventory);
             }
         }catch(SQLException e){
@@ -132,11 +145,12 @@ public class InventoryDAO {
     public List<Inventory> getAllItemsByType(String type) {
         List<Inventory> inventoryList = new ArrayList<>();
         try{
-            PreparedStatement ps = conn.prepareStatement("select * from grocery_store where type = ?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM grocery_store where type=?");
             ps.setString(1, type);
-
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
+                System.out.println("no return");
+
                 String dbItem = rs.getString("item");
                 String dbType = rs.getString("type");
                 double dbPrice = rs.getDouble("price");
