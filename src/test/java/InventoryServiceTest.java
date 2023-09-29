@@ -31,9 +31,8 @@ public class InventoryServiceTest extends TestCase {
 
     public void testDeleteItem() {
         inventoryService.deleteItem("banana");
-        String actual=inventoryService.getItemByName("banana").getItem();
-
-        String expected=null;
+        Inventory actual=inventoryService.getItemByName("banana");
+        Inventory expected=null;
         Assert.assertEquals(expected, actual);
 
     }
