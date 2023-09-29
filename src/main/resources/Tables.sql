@@ -23,24 +23,24 @@ insert into grocery_store (Item, Type, Price, Quantity) values ('pork', 'meat', 
 
 -- baby_products
 insert into grocery_store (Item, Type, Price, Quantity) values ('diapers', 'baby_products', 25.00, 15);
-insert into grocery_store (Item, Type, Price, Quantity) values ('baby bottle', 'baby_products', 3.00, 10);
+insert into grocery_store (Item, Type, Price, Quantity) values ('baby_bottle', 'baby_products', 3.00, 10);
 insert into grocery_store (Item, Type, Price, Quantity) values ('formula', 'baby_products', 5.00, 12);
 
 -- international
 insert into grocery_store (Item, Type, Price, Quantity) values ('rice', 'international', 6.00, 8);
-insert into grocery_store (Item, Type, Price, Quantity) values ('taco shells', 'international', 2.40, 7);
+insert into grocery_store (Item, Type, Price, Quantity) values ('taco_shells', 'international', 2.40, 7);
 insert into grocery_store (Item, Type, Price, Quantity) values ('spaghetti', 'international', 1.30, 14);
 insert into grocery_store (Item, Type, Price, Quantity) values ('fettuccine', 'international', 1.20, 16);
 
 -- candy
 insert into grocery_store (Item, Type, Price, Quantity) values ('lollipop', 'candy', 2.30, 30);
-insert into grocery_store (Item, Type, Price, Quantity) values ('kit kat', 'candy', 2.30, 30);
-insert into grocery_store (Item, Type, Price, Quantity) values ('jolly ranchers', 'candy', 1.25, 5);
+insert into grocery_store (Item, Type, Price, Quantity) values ('kit_kat', 'candy', 2.30, 30);
+insert into grocery_store (Item, Type, Price, Quantity) values ('jolly_ranchers', 'candy', 1.25, 5);
 
 -- animal_products
-insert into grocery_store (Item, Type, Price, Quantity) values ('dog food', 'animal_products', 20.00, 5);
-insert into grocery_store (Item, Type, Price, Quantity) values ('cat food', 'animal_products', 18.00, 7);
-insert into grocery_store (Item, Type, Price, Quantity) values ('cat litter', 'animal_products', 16.00, 6);
+insert into grocery_store (Item, Type, Price, Quantity) values ('dog_food', 'animal_products', 20.00, 5);
+insert into grocery_store (Item, Type, Price, Quantity) values ('cat_food', 'animal_products', 18.00, 7);
+insert into grocery_store (Item, Type, Price, Quantity) values ('cat_litter', 'animal_products', 16.00, 6);
 
 -- hygiene_items
 insert into grocery_store (Item, Type, Price, Quantity) values ('soap', 'hygiene', 0.55, 55);
@@ -48,9 +48,9 @@ insert into grocery_store (Item, Type, Price, Quantity) values ('toothpaste', 'h
 insert into grocery_store (Item, Type, Price, Quantity) values ('shampoo', 'hygiene', 4.00, 35);
 
 -- paper_products
-insert into grocery_store (Item, Type, Price, Quantity) values ('paper towels', 'paper_products', 2.00, 44);
-insert into grocery_store (Item, Type, Price, Quantity) values ('toilet paper', 'paper_products', 2.00, 28);
-insert into grocery_store (Item, Type, Price, Quantity) values ('paper plates', 'paper_products', 2.00, 22);
+insert into grocery_store (Item, Type, Price, Quantity) values ('paper_towels', 'paper_products', 2.00, 44);
+insert into grocery_store (Item, Type, Price, Quantity) values ('toilet_paper', 'paper_products', 2.00, 28);
+insert into grocery_store (Item, Type, Price, Quantity) values ('paper_plates', 'paper_products', 2.00, 22);
 insert into grocery_store (Item, Type, Price, Quantity) values ('napkins', 'paper_products', 0.80, 50);
 
 
