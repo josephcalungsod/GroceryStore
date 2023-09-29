@@ -119,7 +119,7 @@ public class InventoryDAO {
                     "ON grocery_store.item = grocery_info.item  ");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                System.out.println("no return");
+
                 String dbItem = rs.getString("Item");
                 String dbType = rs.getString("Type");
                 double dbPrice = rs.getDouble("Price");
@@ -149,7 +149,6 @@ public class InventoryDAO {
             ps.setString(1, type);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                System.out.println("no return");
 
                 String dbItem = rs.getString("item");
                 String dbType = rs.getString("type");
