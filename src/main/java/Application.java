@@ -19,7 +19,13 @@ public class Application {
         Scanner scan = new Scanner(System.in);
         boolean exit = false;
         while(!exit){
-            System.out.println("Would you like to inventory: \n(1) Add new item \n(2) Query item \n(3) Delete item \n(4) Update quantity of item \n(5) View Inventory\n");
+            System.out.println("\n[grocery_store] inventory: \n" +
+                    "\n(1) Add new item " +
+                    "\n(2) Query item " +
+                    "\n(3) Delete item " +
+                    "\n(4) Update quantity of item " +
+                    "\n(5) View Inventory" +
+                    "\n(6) View Inventory by Type\n");
 
             int response = scan.nextInt();
 
@@ -76,6 +82,16 @@ public class Application {
 
                 System.out.println("\n");
                 System.out.println(inventoryList);
+            }
+            else if(response == 6){
+                // query type from service class
+                System.out.println("(6) QUERY: Enter type: \n" +
+                        "( produce / meat / baby_products / international / candy / animal_products / hygiene / paper_products )\n");
+                String type = scan.next();
+                List<Inventory> inventory = inventoryService.getAllItemsByType(type);
+
+                System.out.println("\n");
+                System.out.println(inventory);
             }
             else{
                 // invalid choice
