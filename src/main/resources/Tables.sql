@@ -62,8 +62,8 @@ CREATE TABLE IF NOT EXISTS grocery_info (
     contact VARCHAR(255)
 );
 
-insert into grocery_info(item_id, Item, farm_name, brand, contact)values (1, 'APPLE','farm_1','new','111-222-2222');
-insert into grocery_info(item_id, Item, farm_name, brand, contact)values (2, 'BANANA','farm_2','new','222-222-2222');
-insert into grocery_info(item_id, Item, farm_name, brand, contact)values (3, 'ORANGE','farm_3','new','333-222-2222');
-insert into grocery_info(item_id, Item, farm_name, brand, contact)values (4, 'TOMATO','farm_4','new','555-222-2222');
-insert into grocery_info(item_id, Item, farm_name, brand, contact)values (5, 'CARROT','farm_5','new','');
+insert into grocery_info(Item_id, Item, Farm_name, Brand, Contact)values (1, 'APPLE','farm_1','new','111-222-2222');
+insert into grocery_info(Item_id, Item, Farm_name, Brand, Contact)values (2, 'BANANA','farm_2','new','222-222-2222');
+insert into grocery_info(Item_id, Item, Farm_name, Brand, Contact)values (3, 'ORANGE','farm_3','new','333-222-2222');
+insert into grocery_info(Item_id, Item, Farm_name, Brand, Contact)values (4, 'TOMATO','farm_4','new','555-222-2222');
+insert into grocery_info(Item_id, Item, Farm_name, Brand, Contact)values (5, 'CARROT','farm_5','new','');
