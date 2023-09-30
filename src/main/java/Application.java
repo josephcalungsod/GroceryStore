@@ -1,6 +1,9 @@
 import Controller.Controller;
+import DAO.CustomerDAO;
 import DAO.InventoryDAO;
+import Model.Customer;
 import Model.Inventory;
+import Service.CustomerService;
 import Service.InventoryService;
 import Util.ConnectionSingleton;
 
@@ -14,7 +17,15 @@ public class Application {
         InventoryDAO inventoryDAO = new InventoryDAO(conn);
         InventoryService inventoryService = new InventoryService(inventoryDAO);
         Controller controller = new Controller(inventoryService);
+
+        // customer flow; controller layer what do?
+        CustomerDAO customerDAO = new CustomerDAO(conn);
+        CustomerService customerService = new CustomerService(customerDAO);
+
+
+
         controller.getAPI().start();
+
 
         Scanner scan = new Scanner(System.in);
         boolean exit = false;
@@ -25,7 +36,10 @@ public class Application {
                     "\n(3) Delete item " +
                     "\n(4) Update quantity of item " +
                     "\n(5) View Inventory" +
-                    "\n(6) View Inventory by Type\n");
+                    "\n(6) View Inventory by Type" +
+                    "\n(7) Add Customer" +
+                    "\n(8) View Inventory" +
+                    "\n(9) Get Customer by ID");
 
             int response = scan.nextInt();
 
@@ -92,6 +106,63 @@ public class Application {
 
                 System.out.println("\n");
                 System.out.println(inventory);
+            }
+            else if(response==7){
+                // add customer to service class
+                System.out.println("(7) ADD CUSTOMER: Enter first name: ");
+                String first_name = scan.next();
+                System.out.println("(7) ADD CUSTOMER: Enter last name: ");
+                String last_name = scan.next();
+                System.out.println("(7) ADD CUSTOMER: Enter city: ");
+                String city = scan.next();
+                System.out.println("(7) ADD CUSTOMER: Enter zip code: ");
+                int zip = scan.nextInt();
+
+                Customer customer = new Customer(first_name, last_name, city, zip);
+
+                System.out.println("\n");
+                customerService.addCustomer(customer);
+            }
+            else if(response == 8){
+                // query all items from service class
+                System.out.println("(8) QUERY: All customers:\n");
+                customerService.getAllCustomers();
+                List<Customer> customerList = customerService.getAllCustomers();
+
+                System.out.println("\n");
+                System.out.println(customerList);
+            }
+            else if(response == 9){
+                // get customer by id
+                System.out.println("(9) QUERY: Enter customer id: \n");
+                int customerId = scan.nextInt();
+                Customer customer = customerService.getCustomerById(customerId);
+                System.out.println(customer);
+
+            }
+            else if(response == 10){
+                // get customer by first name
+                System.out.println("(10) QUERY: Enter customer first name: \n");
+                String customerFirstName = scan.next();
+                Customer customer = customerService.getCustomerByFirstName(customerFirstName);
+                System.out.println(customer);
+
+            }
+            else if(response == 11){
+                // get customer by last name
+                System.out.println("(11) QUERY: Enter customer last name: \n");
+                String customerLastName = scan.next();
+                Customer customer = customerService.getCustomerByLastName(customerLastName);
+                System.out.println(customer);
+
+            }else if(response == 12){
+                // query all customer from a city
+                System.out.println("(12) QUERY: Enter city: \n");
+                String city = scan.next();
+                List<Customer> customerList = customerService.getAllCustomersByCity(city);
+
+                System.out.println("\n");
+                System.out.println(customerList);
             }
             else{
                 // invalid choice

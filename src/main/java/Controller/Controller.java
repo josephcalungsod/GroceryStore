@@ -1,6 +1,8 @@
 package Controller;
 
+import Model.Customer;
 import Model.Inventory;
+import Service.CustomerService;
 import Service.InventoryService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,9 +13,15 @@ import java.util.List;
 
 public class Controller {
     InventoryService inventoryService;
+//    CustomerService customerService;
+
+
     public Controller(InventoryService inventoryService) {
         this.inventoryService = inventoryService;
     }
+
+//    public Controller(CustomerService customerService) { this.customerService = customerService;}
+
 
     public Javalin getAPI() {
         Javalin app = Javalin.create();
@@ -26,7 +34,10 @@ public class Controller {
         app.post("/inventory", this::postInventoryHandler);
         app.get("/qparam-example", this::qparamtest);
         app.put("/inventory", this::putInventoryHandler);
-        //app.delete("/inventory/{item}", this::deleteInventoryHandler);
+//        app.delete("/inventory/{item}", this::deleteInventoryHandler);
+
+//        app.get("/customer", this::getAllCustomerHandler);
+
         return app;
     }
 
@@ -93,7 +104,7 @@ public class Controller {
         context.json(item);
     }
 
-}
+
 //Delete function is not desired,but passed the test.
 //    private void deleteInventoryHandler(Context context){
 //        String item = context.pathParam("item");
@@ -105,3 +116,12 @@ public class Controller {
 //            context.json(inventory);
 //        }
 //    }
+
+    /**
+     * customerService not working???
+     */
+//    private void getAllCustomerHandler(Context context){
+//        List<Customer> customerList = customerService.getAllCustomers();
+//        context.json(customerList);
+//    }
+}

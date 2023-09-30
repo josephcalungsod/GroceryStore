@@ -1,5 +1,6 @@
 drop table grocery_store if exists;
 drop table grocery_info if exists;
+drop table customer if exists;
 
 create table if not exists grocery_store
 (
@@ -67,3 +68,16 @@ insert into grocery_info(Item_id, Item, Farm_name, Brand, Contact)values (2, 'ba
 insert into grocery_info(Item_id, Item, Farm_name, Brand, Contact)values (3, 'orange','farm_3','new','333-222-2222');
 insert into grocery_info(Item_id, Item, Farm_name, Brand, Contact)values (4, 'tomato','farm_4','new','555-222-2222');
 insert into grocery_info(Item_id, Item, Farm_name, Brand, Contact)values (5, 'carrot','farm_5','new','');
+
+create table if not exists customer (
+    customer_id int unique not null primary key auto_increment,
+    first_name varchar(255),
+    last_name varchar(255),
+    city varchar(255),
+    zip_code int
+);
+
+insert into customer(first_name, last_name, city, zip_code) values ('han', 'solo', 'corellia', 00000);
+insert into customer(first_name, last_name, city, zip_code) values ('leia', 'organa', 'alderaan', 11111);
+insert into customer(first_name, last_name, city, zip_code) values ('luke', 'skywalker', 'tatooine', 22222);
+

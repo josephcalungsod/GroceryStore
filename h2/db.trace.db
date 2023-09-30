@@ -395,3 +395,111 @@ org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "Item_id" not found [42122-214]
 	at DAO.InventoryDAO.getAllItems(InventoryDAO.java:127)
 	at Service.InventoryService.getAllItems(InventoryService.java:54)
 	at Application.main(Application.java:81)
+2023-09-29 21:58:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000ainsert into customer(customer_id, first_name, last_name, city, zip_code) values (2, 'leia', 'organa', alderaan[*]', 11111);\000d\000ainsert into customer(customer_id, first_name, last_name, city, zip_code) values (3, 'luke', 'skywalker', tatooine', 22222)"; expected "(, ., [, ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
+
+insert into customer(customer_id, first_name, last_name, city, zip_code) values (2, 'leia', 'organa', alderaan', 11111);
+insert into customer(customer_id, first_name, last_name, city, zip_code) values (3, 'luke', 'skywalker', tatooine', 22222) [42001-214]
+2023-09-29 21:58:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000ainsert into customer(customer_id, first_name, last_name, city, zip_code) values (2, 'leia', 'organa', alderaan[*]', 11111);\000d\000ainsert into customer(customer_id, first_name, last_name, city, zip_code) values (3, 'luke', 'skywalker', tatooine', 22222)"; expected "(, ., [, ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
+
+insert into customer(customer_id, first_name, last_name, city, zip_code) values (2, 'leia', 'organa', alderaan', 11111);
+insert into customer(customer_id, first_name, last_name, city, zip_code) values (3, 'luke', 'skywalker', tatooine', 22222) [42001-214]
+2023-09-29 21:59:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000ainsert into customer(customer_id, first_name, last_name, city, zip_code) values (2, 'leia', 'organa', alderaan[*]', 11111);\000d\000ainsert into customer(customer_id, first_name, last_name, city, zip_code) values (3, 'luke', 'skywalker', tatooine', 22222)"; expected "(, ., [, ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
+
+insert into customer(customer_id, first_name, last_name, city, zip_code) values (2, 'leia', 'organa', alderaan', 11111);
+insert into customer(customer_id, first_name, last_name, city, zip_code) values (3, 'luke', 'skywalker', tatooine', 22222) [42001-214]
+2023-09-29 21:59:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000ainsert into customer(customer_id, first_name, last_name, city, zip_code) values (2, 'leia', 'organa', alderaan[*]', 11111);\000d\000ainsert into customer(customer_id, first_name, last_name, city, zip_code) values (3, 'luke', 'skywalker', tatooine', 22222)"; expected "(, ., [, ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
+
+insert into customer(customer_id, first_name, last_name, city, zip_code) values (2, 'leia', 'organa', alderaan', 11111);
+insert into customer(customer_id, first_name, last_name, city, zip_code) values (3, 'luke', 'skywalker', tatooine', 22222) [42001-214]
+2023-09-29 22:00:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Invalid value "6" for parameter "parameterIndex" [90008-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:646)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:298)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1395)
+	at org.h2.jdbc.JdbcPreparedStatement.setInt(JdbcPreparedStatement.java:359)
+	at DAO.CustomerDAO.addCustomer(CustomerDAO.java:32)
+	at Service.CustomerService.addCustomer(CustomerService.java:14)
+	at Application.main(Application.java:123)
+2023-09-29 22:09:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000a\000d\000acreate table if not exists customer (\000d\000a    customer_id int unique not null primary key [*]identity(100, 1) auto_increment,\000d\000a    first_name varchar(255),\000d\000a    last_name varchar(255),\000d\000a    city varchar(255),\000d\000a    zip_code int\000d\000a)"; expected "HASH, CONSTRAINT, COMMENT, UNIQUE, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+
+
+create table if not exists customer (
+    customer_id int unique not null primary key identity(100, 1) auto_increment,
+    first_name varchar(255),
+    last_name varchar(255),
+    city varchar(255),
+    zip_code int
+) [42001-214]
+2023-09-29 22:10:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000a\000d\000acreate table if not exists customer (\000d\000a    customer_id int unique not null primary key [*]identity(4, 1) auto_increment,\000d\000a    first_name varchar(255),\000d\000a    last_name varchar(255),\000d\000a    city varchar(255),\000d\000a    zip_code int\000d\000a)"; expected "HASH, CONSTRAINT, COMMENT, UNIQUE, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+
+
+create table if not exists customer (
+    customer_id int unique not null primary key identity(4, 1) auto_increment,
+    first_name varchar(255),
+    last_name varchar(255),
+    city varchar(255),
+    zip_code int
+) [42001-214]
+2023-09-29 22:11:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000a\000d\000acreate table if not exists customer (\000d\000a    customer_id int unique not null primary key [*]identity(4, 1) auto_increment,\000d\000a    first_name varchar(255),\000d\000a    last_name varchar(255),\000d\000a    city varchar(255),\000d\000a    zip_code int\000d\000a)"; expected "HASH, CONSTRAINT, COMMENT, UNIQUE, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+
+
+create table if not exists customer (
+    customer_id int unique not null primary key identity(4, 1) auto_increment,
+    first_name varchar(255),
+    last_name varchar(255),
+    city varchar(255),
+    zip_code int
+) [42001-214]
+2023-09-29 22:12:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000a\000d\000acreate table if not exists customer (\000d\000a    customer_id int [*]identity(4, 1) unique not null primary key auto_increment,\000d\000a    first_name varchar(255),\000d\000a    last_name varchar(255),\000d\000a    city varchar(255),\000d\000a    zip_code int\000d\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+
+
+create table if not exists customer (
+    customer_id int identity(4, 1) unique not null primary key auto_increment,
+    first_name varchar(255),
+    last_name varchar(255),
+    city varchar(255),
+    zip_code int
+) [42001-214]
+2023-09-29 22:13:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000a\000d\000acreate table if not exists customer (\000d\000a    customer_id int [*]identity(4, 1) unique not null primary key auto_increment,\000d\000a    first_name varchar(255),\000d\000a    last_name varchar(255),\000d\000a    city varchar(255),\000d\000a    zip_code int\000d\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+
+
+create table if not exists customer (
+    customer_id int identity(4, 1) unique not null primary key auto_increment,
+    first_name varchar(255),
+    last_name varchar(255),
+    city varchar(255),
+    zip_code int
+) [42001-214]
+2023-09-29 22:17:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000a\000d\000acreate table if not exists customer (\000d\000a    customer_id int [*]identity(4, 1) unique not null primary key,\000d\000a    first_name varchar(255),\000d\000a    last_name varchar(255),\000d\000a    city varchar(255),\000d\000a    zip_code int\000d\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+
+
+create table if not exists customer (
+    customer_id int identity(4, 1) unique not null primary key,
+    first_name varchar(255),
+    last_name varchar(255),
+    city varchar(255),
+    zip_code int
+) [42001-214]
+2023-09-29 22:26:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000a\000d\000acreate table if not exists customer (\000d\000a    customer_id int unique not null primary key auto_increment[*]=4,\000d\000a    first_name varchar(255),\000d\000a    last_name varchar(255),\000d\000a    city varchar(255),\000d\000a    zip_code int\000d\000a)"; expected "(, CONSTRAINT, COMMENT, UNIQUE, CHECK, REFERENCES, ,, )"; SQL statement:
+
+
+create table if not exists customer (
+    customer_id int unique not null primary key auto_increment=4,
+    first_name varchar(255),
+    last_name varchar(255),
+    city varchar(255),
+    zip_code int
+) [42001-214]
