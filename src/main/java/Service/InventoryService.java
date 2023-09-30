@@ -63,7 +63,7 @@ public class InventoryService {
         return allItemsByType;
     }
 
-    //          CUSTOMER TABLE
+    //          CUSTOMER TABLE API reroute
     public List<Customer> getAllCustomers() {
         List<Customer> allCustomers = inventoryDAO.getAllCustomers();
         return allCustomers;

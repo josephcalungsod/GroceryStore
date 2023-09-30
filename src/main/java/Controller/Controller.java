@@ -138,7 +138,7 @@ public class Controller {
         ObjectMapper om = new ObjectMapper();
         try{
             Customer c = om.readValue(context.body(), Customer.class);
-            inventoryService.updateCustomer(c);
+            inventoryService.addCustomer(c);
 //            resource created response
             context.status(201);
 
@@ -150,7 +150,7 @@ public class Controller {
         ObjectMapper om = new ObjectMapper();
         try {
             Customer c = om.readValue(context.body(), Customer.class);
-            inventoryService.addCustomer(c);
+            inventoryService.updateCustomer(c);
 //            resource created response
             context.status(201);
         }catch(JsonProcessingException e){

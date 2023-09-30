@@ -163,7 +163,7 @@ public class InventoryDAO {
         }
         return inventoryList;
     }
-    //                  customer TABLE
+    //                  customer TABLE API reroute
     public List<Customer> getAllCustomers() {
         List<Customer> customerList = new ArrayList<>();
         try{
@@ -259,7 +259,7 @@ public class InventoryDAO {
 
     public void updateCustomer(Customer c) {
         try{
-            PreparedStatement ps = conn.prepareStatement("update customer set first_name=? set last_name=? set city=? set zip_code=? where customer_id=?");
+            PreparedStatement ps = conn.prepareStatement("update customer set first_name=? last_name=? city=? zip_code=? where customer_id=?");
             ps.setString(1, c.getCustomerFirstName());
             ps.setString(2, c.getCustomerLastName());
             ps.setString(3, c.getCustomerCity());

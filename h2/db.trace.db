@@ -512,3 +512,6 @@ update customer set first_name=? st last_name=? set city=? set zip_code=? where 
 2023-09-30 11:21:34 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "update customer set first_name=? [*]set last_name=? set city=? set zip_code=? where customer_id=?"; SQL statement:
 update customer set first_name=? set last_name=? set city=? set zip_code=? where customer_id=? [42000-214]
+2023-09-30 11:41:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "update customer set first_name=? [*]set last_name=? set city=? set zip_code=? where customer_id=?"; SQL statement:
+update customer set first_name=? set last_name=? set city=? set zip_code=? where customer_id=? [42000-214]
