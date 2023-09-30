@@ -28,18 +28,17 @@ public class Controller {
 
     public Javalin getAPI() {
         Javalin app = Javalin.create();
-//        this endpoints are RESTful because they identify a resource to work with (the 'flight' model)
-//        they descriptively provide information on what the intended action is
-//        they will interact with JSON formats of the flight data model
+
+//        INVENTORY interactions
         app.get("/inventory", this::getAllInventoryHandler);
         app.get("/inventory/{item}", this::getInventoryByNameHandler);
         app.get("/inventory/type/{type}", this::getAllInventoryByTypeHandler);
         app.post("/inventory", this::postInventoryHandler);
-        app.get("/qparam-example", this::qparamtest);
         app.put("/inventory", this::putInventoryHandler);
 
 //        app.delete("/inventory/{item}", this::deleteInventoryHandler);
 
+//        CUSTOMER interactions
         app.get("/customer", this::getAllCustomersHandler);
         app.get("/customer/city/{city}", this::getAllCustomersByCityHandler);
         app.post("/customer", this::postCustomerHandler);
@@ -108,10 +107,6 @@ public class Controller {
             context.status(400);
         }
 
-    }
-    private void qparamtest(Context context){
-        String item = context.queryParam("Item");
-        context.json(item);
     }
 
 
