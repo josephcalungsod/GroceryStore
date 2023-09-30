@@ -1,7 +1,9 @@
 package Service;
 
+import DAO.CustomerDAO;
 import DAO.InventoryDAO;
 import Exceptions.NoProductFoundException;
+import Model.Customer;
 import Model.Inventory;
 import Util.LogUtil;
 
@@ -10,11 +12,13 @@ import java.util.List;
 
 public class InventoryService {
     private InventoryDAO inventoryDAO;
+    private CustomerDAO customerDAO;
 
 
     public InventoryService(InventoryDAO inventoryDAO) {
         this.inventoryDAO = inventoryDAO;
     }
+
 
     /**
      * add inventory via InventoryDAO
@@ -59,4 +63,17 @@ public class InventoryService {
         return allItemsByType;
     }
 
+    //          CUSTOMER TABLE
+    public List<Customer> getAllCustomers() {
+        List<Customer> allCustomers = inventoryDAO.getAllCustomers();
+        return allCustomers;
+    }
+
+    public void updateCustomer(Customer c) {
+        inventoryDAO.updateCustomer(c);
+    }
+
+    public void addCustomer(Customer c) {
+        inventoryDAO.addCustomer(c);
+    }
 }

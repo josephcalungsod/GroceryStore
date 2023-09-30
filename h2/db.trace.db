@@ -503,3 +503,12 @@ create table if not exists customer (
     city varchar(255),
     zip_code int
 ) [42001-214]
+2023-09-30 11:18:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "update customer set first_name=? [*]last_name=? city=? zip_code=? where customer_id=?"; SQL statement:
+update customer set first_name=? last_name=? city=? zip_code=? where customer_id=? [42000-214]
+2023-09-30 11:20:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "update customer set first_name=? [*]st last_name=? set city=? set zip_code=? where customer_id=?"; SQL statement:
+update customer set first_name=? st last_name=? set city=? set zip_code=? where customer_id=? [42000-214]
+2023-09-30 11:21:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "update customer set first_name=? [*]set last_name=? set city=? set zip_code=? where customer_id=?"; SQL statement:
+update customer set first_name=? set last_name=? set city=? set zip_code=? where customer_id=? [42000-214]

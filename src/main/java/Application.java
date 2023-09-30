@@ -18,9 +18,12 @@ public class Application {
         InventoryService inventoryService = new InventoryService(inventoryDAO);
         Controller controller = new Controller(inventoryService);
 
+
+
         // customer flow; controller layer what do?
         CustomerDAO customerDAO = new CustomerDAO(conn);
         CustomerService customerService = new CustomerService(customerDAO);
+//        Controller controller2 = CustomerController(customerService);
 
 
 
@@ -38,7 +41,7 @@ public class Application {
                     "\n(5) View Inventory" +
                     "\n(6) View Inventory by Type" +
                     "\n(7) Add Customer" +
-                    "\n(8) View Inventory" +
+                    "\n(8) View Customers" +
                     "\n(9) Get Customer by ID" +
                     "\n(10) Get all customers by first name" +
                     "\n(11) Get all customers by last name" +
@@ -46,6 +49,7 @@ public class Application {
 
             int response = scan.nextInt();
 
+            //            INVENTORY table UI
             if(response==1){
                 // add item to service class
                 System.out.println("(1) ADD: Enter item: ");
@@ -82,8 +86,8 @@ public class Application {
                 // update item using service class
                 System.out.println("(4) UPDATE: Enter item: ");
                 String item = scan.next();
-//                System.out.println("(4) UPDATE: Enter price: ");
-//                double price = scan.nextDouble();
+                System.out.println("(4) UPDATE: Enter price: ");
+                double price = scan.nextDouble();
                 System.out.println("(4) UPDATE: Enter quantity: ");
                 int quantity = scan.nextInt();
                 Inventory inventory = new Inventory(item , quantity);
@@ -105,11 +109,13 @@ public class Application {
                 System.out.println("(6) QUERY: Enter type: \n" +
                         "( produce / meat / baby_products / international / candy / animal_products / hygiene / paper_products )\n");
                 String type = scan.next();
-                List<Inventory> inventory = inventoryService.getAllItemsByType(type);
+//                List<Inventory> inventory = inventoryService.getAllItemsByType(type);
 
                 System.out.println("\n");
-                System.out.println(inventory);
+//                System.out.println(inventory);
             }
+
+            //           CUSTOMER UI
             else if(response==7){
                 // add customer to service class
                 System.out.println("(7) ADD CUSTOMER: Enter first name: ");
@@ -126,6 +132,10 @@ public class Application {
                 System.out.println("\n");
                 customerService.addCustomer(customer);
             }
+
+
+
+
             else if(response == 8){
                 // query all customers
                 System.out.println("(8) QUERY: All customers:\n");
@@ -136,7 +146,7 @@ public class Application {
                 System.out.println(customerList);
             }
             else if(response == 9){
-                // get customer by id
+                // get customer by *ID*
                 System.out.println("(9) QUERY: Enter customer id: \n");
                 int customerId = scan.nextInt();
                 Customer customer = customerService.getCustomerById(customerId);
@@ -144,7 +154,7 @@ public class Application {
 
             }
             else if(response == 10){
-                // get customer by first name
+                // get customer by *FIRST NAME*
                 System.out.println("(10) QUERY: Enter customer first name: \n");
                 String customerFirstName = scan.next();
                 List<Customer> customerList = customerService.getAllCustomersByFirstName(customerFirstName);
@@ -152,14 +162,14 @@ public class Application {
 
             }
             else if(response == 11){
-                // get customer by last name
+                // get customer by *LAST NAME*
                 System.out.println("(11) QUERY: Enter customer last name: \n");
                 String customerLastName = scan.next();
                 List<Customer> customerList = customerService.getAllCustomersByLastName(customerLastName);
                 System.out.println(customerList);
 
             }else if(response == 12){
-                // query all customer from a city
+                // query all customerS from a *CITY*
                 System.out.println("(12) QUERY: Enter city: \n");
                 String city = scan.next();
                 List<Customer> customerList = customerService.getAllCustomersByCity(city);

@@ -1,6 +1,5 @@
 package DAO;
 
-import Model.Inventory;
 import Model.Order;
 
 import java.sql.Connection;

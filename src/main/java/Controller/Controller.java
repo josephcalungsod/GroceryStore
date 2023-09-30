@@ -5,10 +5,12 @@ import Model.Inventory;
 import Service.CustomerService;
 import Service.InventoryService;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class Controller {
@@ -16,11 +18,12 @@ public class Controller {
 //    CustomerService customerService;
 
 
+
     public Controller(InventoryService inventoryService) {
         this.inventoryService = inventoryService;
     }
 
-//    public Controller(CustomerService customerService) { this.customerService = customerService;}
+//    public ControllerCustomer(CustomerService customerService) { this.customerService = customerService;}
 
 
     public Javalin getAPI() {
@@ -34,12 +37,18 @@ public class Controller {
         app.post("/inventory", this::postInventoryHandler);
         app.get("/qparam-example", this::qparamtest);
         app.put("/inventory", this::putInventoryHandler);
+
 //        app.delete("/inventory/{item}", this::deleteInventoryHandler);
 
-//        app.get("/customer", this::getAllCustomerHandler);
+        app.get("/customer", this::getAllCustomersHandler);
+        app.post("/customer", this::postCustomerHandler);
+        app.put("/customer", this::putCustomerHandler);
 
         return app;
     }
+
+
+
 
     private void getAllInventoryHandler(Context context){
         List<Inventory> inventoryList = inventoryService.getAllItems();
@@ -83,7 +92,7 @@ public class Controller {
         }
 
     }
-   
+
     private void putInventoryHandler(Context context){
         ObjectMapper om = new ObjectMapper();
         try {
@@ -118,10 +127,37 @@ public class Controller {
 //    }
 
     /**
-     * customerService not working???
+     * postCustomerHandler, putCustomerHandler, not working
      */
-//    private void getAllCustomerHandler(Context context){
-//        List<Customer> customerList = customerService.getAllCustomers();
-//        context.json(customerList);
-//    }
+    private void getAllCustomersHandler(Context context){
+        List<Customer> customerList = inventoryService.getAllCustomers();
+        System.out.println(customerList);
+        context.json(customerList);
+    }
+    private void postCustomerHandler(Context context) throws JsonProcessingException {
+        ObjectMapper om = new ObjectMapper();
+        try{
+            Customer c = om.readValue(context.body(), Customer.class);
+            inventoryService.updateCustomer(c);
+//            resource created response
+            context.status(201);
+
+        } catch (JsonMappingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private void putCustomerHandler(Context context) {
+        ObjectMapper om = new ObjectMapper();
+        try {
+            Customer c = om.readValue(context.body(), Customer.class);
+            inventoryService.addCustomer(c);
+//            resource created response
+            context.status(201);
+        }catch(JsonProcessingException e){
+//            if the json couldn't be processed, then the user sent us a faulty JSON,
+//            so return a 400
+            e.printStackTrace();
+            context.status(400);
+        }
+    }
 }
