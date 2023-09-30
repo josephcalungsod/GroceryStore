@@ -76,4 +76,9 @@ public class InventoryService {
     public void addCustomer(Customer c) {
         inventoryDAO.addCustomer(c);
     }
+
+    public List<Customer> getAllCustomersByCity(String city) {
+        List<Customer> allCustomerByCity = inventoryDAO.getAllCustomersByCity(city);
+    return allCustomerByCity;
+    }
 }

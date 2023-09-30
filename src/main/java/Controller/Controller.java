@@ -41,6 +41,7 @@ public class Controller {
 //        app.delete("/inventory/{item}", this::deleteInventoryHandler);
 
         app.get("/customer", this::getAllCustomersHandler);
+        app.get("/customer/city/{city}", this::getAllCustomersByCityHandler);
         app.post("/customer", this::postCustomerHandler);
         app.put("/customer", this::putCustomerHandler);
 
@@ -133,6 +134,15 @@ public class Controller {
         List<Customer> customerList = inventoryService.getAllCustomers();
         System.out.println(customerList);
         context.json(customerList);
+    }
+    private void getAllCustomersByCityHandler(Context context){
+        String city = context.pathParam("city");
+        List<Customer> customerByCityList= inventoryService.getAllCustomersByCity(city);
+        if(customerByCityList == null){
+            context.status(404);
+        }else{
+            context.json(customerByCityList);
+        }
     }
     private void postCustomerHandler(Context context) throws JsonProcessingException {
         ObjectMapper om = new ObjectMapper();
