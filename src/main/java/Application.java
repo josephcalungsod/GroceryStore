@@ -39,7 +39,10 @@ public class Application {
                     "\n(6) View Inventory by Type" +
                     "\n(7) Add Customer" +
                     "\n(8) View Inventory" +
-                    "\n(9) Get Customer by ID");
+                    "\n(9) Get Customer by ID" +
+                    "\n(10) Get Customer by first name" +
+                    "\n(11) Get Customer by last name" +
+                    "\n(12) Get Customer by city");
 
             int response = scan.nextInt();
 
