@@ -5,49 +5,94 @@ import Model.Customer;
 
 import java.util.List;
 
+/**
+ * The CustomerService class provides methods for interacting with customer data.
+ */
 public class CustomerService {
     private CustomerDAO customerDAO;
 
-    public CustomerService(CustomerDAO customerDAO){ this.customerDAO = customerDAO; }
-
-//    add customer
-    public void addCustomer(Customer customer){ customerDAO.addCustomer(customer); }
-
-//    delete customer
-    public void deleteCustomer(Customer customer){ customerDAO.deleteCustomer(customer); }
-
-//    update customer
-    public void updateCustomer(Customer customer){ customerDAO.updateCustomer(customer); }
-
-//    get customer by id
-    public Customer getCustomerById(int customerId){
-        Customer customerById = customerDAO.getCustomerById(customerId);
-        return customerById;
+    /**
+     * Constructs a CustomerService object with a specified CustomerDAO.
+     *
+     * @param customerDAO The DAO used for database interactions.
+     */
+    public CustomerService(CustomerDAO customerDAO) {
+        this.customerDAO = customerDAO;
     }
 
-//    get customers by firstName
-    public List<Customer> getAllCustomersByFirstName(String customerFirstName){
-        List<Customer> customersByFirstName = customerDAO.getAllCustomersByFirstName(customerFirstName);
-        return customersByFirstName;
+    /**
+     * Adds a customer to the database.
+     *
+     * @param customer The customer to be added.
+     */
+    public void addCustomer(Customer customer) {
+        customerDAO.addCustomer(customer);
     }
 
-//    get customers by lastName
-    public List<Customer> getAllCustomersByLastName(String customerLastName){
-        List<Customer> customersByLastName = customerDAO.getAllCustomersByLastName(customerLastName);
-        return customersByLastName;
-    }
-//    get customers by city
-    public List<Customer> getAllCustomersByCity(String city){
-        List<Customer> allCustomersByCity = customerDAO.getAllCustomersByCity(city);
-        return allCustomersByCity;
+    /**
+     * Deletes a customer from the database.
+     *
+     * @param customer The customer to be deleted.
+     */
+    public void deleteCustomer(Customer customer) {
+        customerDAO.deleteCustomer(customer);
     }
 
-//    get all customers
-    public List<Customer> getAllCustomers(){
-        List<Customer> allCustomers = customerDAO.getAllCustomers();
-        return allCustomers;
+    /**
+     * Updates customer information in the database.
+     *
+     * @param customer The updated customer information.
+     */
+    public void updateCustomer(Customer customer) {
+        customerDAO.updateCustomer(customer);
     }
 
+    /**
+     * Retrieves a customer by their unique ID from the database.
+     *
+     * @param customerId The unique ID of the customer to retrieve.
+     * @return The customer with the specified ID, or null if not found.
+     */
+    public Customer getCustomerById(int customerId) {
+        return customerDAO.getCustomerById(customerId);
+    }
 
+    /**
+     * Retrieves a list of customers by their first name from the database.
+     *
+     * @param customerFirstName The first name to search for.
+     * @return A list of customers with the specified first name.
+     */
+    public List<Customer> getAllCustomersByFirstName(String customerFirstName) {
+        return customerDAO.getAllCustomersByFirstName(customerFirstName);
+    }
+
+    /**
+     * Retrieves a list of customers by their last name from the database.
+     *
+     * @param customerLastName The last name to search for.
+     * @return A list of customers with the specified last name.
+     */
+    public List<Customer> getAllCustomersByLastName(String customerLastName) {
+        return customerDAO.getAllCustomersByLastName(customerLastName);
+    }
+
+    /**
+     * Retrieves a list of customers by their city from the database.
+     *
+     * @param city The city to search for.
+     * @return A list of customers in the specified city.
+     */
+    public List<Customer> getAllCustomersByCity(String city) {
+        return customerDAO.getAllCustomersByCity(city);
+    }
+
+    /**
+     * Retrieves a list of all customers from the database.
+     *
+     * @return A list of all customers in the database.
+     */
+    public List<Customer> getAllCustomers() {
+        return customerDAO.getAllCustomers();
+    }
 }
-

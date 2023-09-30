@@ -1,24 +1,149 @@
-test"# Grocery Store
-We want user to be able to:
-### (1) insert item
-- Inserts new item
-- *name / price / quantity*
-### (2) update item
-- Displays item 
-- *name / price / quantity*
-### (3) delete item
-- Removes item. ( *if exists* )
-### (4) display item
-- Displays item
-- *name / price / quantity*
+# **Grocery Store Inventory System**
 
-#### potential primary/foreign keys 
-- primary key = item
-- foreign key = brand
-#### example  
-  - <b><u>table grocery_store</b></u>
-    - <i>pk item: milk</i>
-  - <b><u>table item_brand</b></u>
-    - <i>fk brand: americas choice</i>
-    - <i>fk brand: horizon</i>
+A robust solution to manage, track, and access inventory and customer details for a grocery store.
 
+## **Key Features**
+
+### **Inventory Management**
+
+1. **Add New Item**
+   - Add items seamlessly.
+   - Fields: 
+     * Item Name
+     * Type
+     * Price
+     * Quantity
+
+2. **Update Item Details**
+   - Make necessary modifications to item data.
+   - Fields: 
+     * Item Name
+     * Quantity
+
+3. **Delete Item**
+   - Remove items from the inventory database.
+
+4. **Retrieve Item Information**
+   - View details of specific items.
+   - Display: 
+     * Name
+     * Type
+     * Price
+     * Quantity
+   - Additional Info: 
+     * Item ID
+     * Farm Name
+     * Brand
+     * Contact Info
+
+5. **Full Inventory Overview**
+   - A holistic view of all inventory items.
+   - Display: 
+     * Name
+     * Type
+     * Price
+     * Quantity
+   - Additional Info: 
+     * Item ID
+     * Farm Name
+     * Brand
+     * Contact Info
+
+6. **Filter Items by Type**
+   - Categorize items by type for better viewing.
+   - Display: 
+     * Name
+     * Type
+     * Price
+     * Quantity
+   - Additional Info: 
+     * Item ID
+     * Farm Name
+     * Brand
+     * Contact Info
+
+### **Customer Management**
+
+7. **Add Customer**
+   - Register new customers to the system.
+   - Fields: 
+     * Customer ID (auto-incremented)
+     * First Name
+     * Last Name
+     * City
+     * Zip Code
+
+8. **View All Customers**
+   - A list of all registered customers.
+   - Display: 
+     * Customer ID
+     * First Name
+     * Last Name
+     * City
+     * Zip Code
+
+9. **Retrieve Customer by ID**
+   - Get specific details of a customer using their ID.
+   - Display: 
+     * Customer ID
+     * First Name
+     * Last Name
+     * City
+     * Zip Code
+
+10. **Filter Customers by First Name**
+   - List customers based on their first name.
+   - Display: 
+     * Customer ID
+     * First Name
+     * Last Name
+     * City
+     * Zip Code
+
+11. **Filter Customers by Last Name**
+   - List customers based on their last name.
+   - Display: 
+     * Customer ID
+     * First Name
+     * Last Name
+     * City
+     * Zip Code
+
+12. **Filter Customers by City**
+   - List customers based on their city.
+   - Display: 
+     * Customer ID
+     * First Name
+     * Last Name
+     * City
+     * Zip Code
+
+## **Database Architecture**
+
+Our system is backed by three main tables:
+
+1. **grocery_store**: Basic details of items.
+   - PK: `item` (e.g., *milk*)
+   - Fields: 
+     * Item
+     * Type
+     * Price
+     * Quantity
+
+2. **grocery_info**: Additional information related to items.
+   - PK: `item_id` (e.g., *1*)
+   - FK: `item` (References **grocery_store**)
+   - Fields: 
+     * Item ID
+     * Farm Name
+     * Brand
+     * Contact
+
+3. **customer**: Central table for customer data.
+   - PK: `customer_id` (e.g., *1*)
+   - Fields: 
+     * Customer ID
+     * First Name
+     * Last Name
+     * City
+     * Zip Code
