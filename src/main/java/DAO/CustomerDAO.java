@@ -37,6 +37,10 @@ public class CustomerDAO {
         }
     }
 
+    /**
+     * Delete a customer from customer table
+     * @param customer
+     */
     public void deleteCustomer(Customer customer) {
         try{
             PreparedStatement ps = conn.prepareStatement("delete customer where customer_id = ?");
@@ -48,6 +52,10 @@ public class CustomerDAO {
 
     }
 
+    /**
+     * Update customer information: (first name, last name, city, zip code) via customer_id
+     * @param customer
+     */
     public void updateCustomer(Customer customer) {
         try{
             PreparedStatement ps = conn.prepareStatement("update customer set first_name=? last_name=? city=? zip_code=? where customer_id=?");
@@ -61,6 +69,11 @@ public class CustomerDAO {
         }
     }
 
+    /**
+     * Get customer record via customer id
+     * @param customerId
+     * @return
+     */
     public Customer getCustomerById(int customerId) {
         try{
             PreparedStatement ps = conn.prepareStatement("select * from customer where customer_id=?");
@@ -82,46 +95,59 @@ public class CustomerDAO {
         return null;
     }
 
-    public Customer getCustomerByFirstName(String customerFirstName) {
+    /**
+     * Get customer record b
+     * @param customerFirstName
+     * @return
+     */
+    public List<Customer> getAllCustomersByFirstName(String customerFirstName) {
+        List<Customer> customerList = new ArrayList<>();
         try{
             PreparedStatement ps = conn.prepareStatement("select * from customer where first_name=?");
             ps.setString(1, customerFirstName);
+
             ResultSet rs = ps.executeQuery();
-            if(rs.next()){
+
+
+            while(rs.next()){
                 int dbCustomerId = rs.getInt("customer_id");
                 String dbCustomerFirstName = rs.getString("first_name");
                 String dbCustomerLastName = rs.getString("last_name");
-                String dbCity = rs.getString("city");
-                int dbZip = rs.getInt("zip_code");
-                return new Customer(dbCustomerId, dbCustomerFirstName, dbCustomerLastName, dbCity, dbZip);
+                String dbCustomerCity = rs.getString("city");
+                int dbCustomerZip = rs.getInt("zip_code");
+                Customer dbCustomerList = new Customer(dbCustomerId, dbCustomerFirstName, dbCustomerLastName, dbCustomerCity, dbCustomerZip);
+                customerList.add(dbCustomerList);
+
 
             }
 
         }catch(SQLException e){
             e.printStackTrace();
         }
-        return null;
+        return customerList;
     }
 
-    public Customer getCustomerByLastName(String customerLastName) {
+    public List<Customer> getAllCustomersByLastName(String customerLastName) {
+        List<Customer> customerList = new ArrayList<>();
         try{
             PreparedStatement ps = conn.prepareStatement("select * from customer where last_name=?");
             ps.setString(1, customerLastName);
             ResultSet rs = ps.executeQuery();
-            if(rs.next()){
+            while(rs.next()){
                 int dbCustomerId = rs.getInt("customer_id");
                 String dbCustomerFirstName = rs.getString("first_name");
                 String dbCustomerLastName = rs.getString("last_name");
-                String dbCity = rs.getString("city");
-                int dbZip = rs.getInt("zip_code");
-                return new Customer(dbCustomerId, dbCustomerFirstName, dbCustomerLastName, dbCity, dbZip);
+                String dbCustomerCity = rs.getString("city");
+                int dbCustomerZip = rs.getInt("zip_code");
+                Customer dbCustomerList = new Customer(dbCustomerId, dbCustomerFirstName, dbCustomerLastName, dbCustomerCity, dbCustomerZip);
+                customerList.add(dbCustomerList);
 
             }
 
         }catch(SQLException e){
             e.printStackTrace();
         }
-        return null;
+        return customerList;
     }
 
     public List<Customer> getAllCustomers() {

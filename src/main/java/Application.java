@@ -40,9 +40,9 @@ public class Application {
                     "\n(7) Add Customer" +
                     "\n(8) View Inventory" +
                     "\n(9) Get Customer by ID" +
-                    "\n(10) Get Customer by first name" +
-                    "\n(11) Get Customer by last name" +
-                    "\n(12) Get Customer by city");
+                    "\n(10) Get all customers by first name" +
+                    "\n(11) Get all customers by last name" +
+                    "\n(12) Get all customers by city");
 
             int response = scan.nextInt();
 
@@ -127,7 +127,7 @@ public class Application {
                 customerService.addCustomer(customer);
             }
             else if(response == 8){
-                // query all items from service class
+                // query all customers
                 System.out.println("(8) QUERY: All customers:\n");
                 customerService.getAllCustomers();
                 List<Customer> customerList = customerService.getAllCustomers();
@@ -147,16 +147,16 @@ public class Application {
                 // get customer by first name
                 System.out.println("(10) QUERY: Enter customer first name: \n");
                 String customerFirstName = scan.next();
-                Customer customer = customerService.getCustomerByFirstName(customerFirstName);
-                System.out.println(customer);
+                List<Customer> customerList = customerService.getAllCustomersByFirstName(customerFirstName);
+                System.out.println(customerList);
 
             }
             else if(response == 11){
                 // get customer by last name
                 System.out.println("(11) QUERY: Enter customer last name: \n");
                 String customerLastName = scan.next();
-                Customer customer = customerService.getCustomerByLastName(customerLastName);
-                System.out.println(customer);
+                List<Customer> customerList = customerService.getAllCustomersByLastName(customerLastName);
+                System.out.println(customerList);
 
             }else if(response == 12){
                 // query all customer from a city

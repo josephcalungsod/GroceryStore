@@ -25,16 +25,21 @@ public class CustomerService {
         return customerById;
     }
 
-//    get customer by firstName
-    public Customer getCustomerByFirstName(String customerFirstName){
-        Customer customerByFirstName = customerDAO.getCustomerByFirstName(customerFirstName);
-        return customerByFirstName;
+//    get customers by firstName
+    public List<Customer> getAllCustomersByFirstName(String customerFirstName){
+        List<Customer> customersByFirstName = customerDAO.getAllCustomersByFirstName(customerFirstName);
+        return customersByFirstName;
     }
 
-//    get customer by lastName
-    public Customer getCustomerByLastName(String customerLastName){
-        Customer customerByLastName = customerDAO.getCustomerByLastName(customerLastName);
-        return customerByLastName;
+//    get customers by lastName
+    public List<Customer> getAllCustomersByLastName(String customerLastName){
+        List<Customer> customersByLastName = customerDAO.getAllCustomersByLastName(customerLastName);
+        return customersByLastName;
+    }
+//    get customers by city
+    public List<Customer> getAllCustomersByCity(String city){
+        List<Customer> allCustomersByCity = customerDAO.getAllCustomersByCity(city);
+        return allCustomersByCity;
     }
 
 //    get all customers
@@ -42,10 +47,7 @@ public class CustomerService {
         List<Customer> allCustomers = customerDAO.getAllCustomers();
         return allCustomers;
     }
-    public List<Customer> getAllCustomersByCity(String city){
-        List<Customer> allCustomersByCity = customerDAO.getAllCustomersByCity(city);
-        return allCustomersByCity;
-    }
+
 
 }
 
