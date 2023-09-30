@@ -259,11 +259,12 @@ public class InventoryDAO {
 
     public void updateCustomer(Customer c) {
         try{
-            PreparedStatement ps = conn.prepareStatement("update customer set first_name=? last_name=? city=? zip_code=? where customer_id=?");
+            PreparedStatement ps = conn.prepareStatement("update customer set first_name=?, last_name=?, city=?, zip_code=? where customer_id=?");
             ps.setString(1, c.getCustomerFirstName());
             ps.setString(2, c.getCustomerLastName());
             ps.setString(3, c.getCustomerCity());
             ps.setInt(4, c.getCustomerZip());
+            ps.setInt(5, c.getCustomerId());
             ps.executeUpdate();
         }catch(SQLException e){
             e.printStackTrace();
