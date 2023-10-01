@@ -102,11 +102,11 @@ public class Application {
                 System.out.println("(6) QUERY: Enter type: \n" +
                         "( produce / meat / baby_products / international / candy / animal_products / hygiene / paper_products )\n");
                 String type = scan.next();
+                 List<Inventory> inventory = inventoryService.getAllItemsByType(type);
+                 System.out.println(inventory);
 
                 System.out.println("\n");
-                // Uncomment the code below to display the list of items by type.
-                // List<Inventory> inventory = inventoryService.getAllItemsByType(type);
-                // System.out.println(inventory);
+
             }
 
             // CUSTOMER UI
