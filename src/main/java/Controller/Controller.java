@@ -43,6 +43,7 @@ public class Controller {
         app.get("/inventory", this::getAllInventoryHandler);
         app.get("/inventory/{item}", this::getInventoryByNameHandler);
         app.get("/inventory/type/{type}", this::getAllInventoryByTypeHandler);
+
         app.post("/inventory", this::postInventoryHandler);
         app.put("/inventory", this::putInventoryHandler);
 
@@ -85,6 +86,10 @@ public class Controller {
         }
     }
 
+    /**
+     * Add new item
+     * @param context
+     */
     private void postInventoryHandler(Context context) {
         ObjectMapper om = new ObjectMapper();
         try {
@@ -100,6 +105,10 @@ public class Controller {
         }
     }
 
+    /**
+     * Update existing item's record
+     * @param context
+     */
     private void putInventoryHandler(Context context) {
         ObjectMapper om = new ObjectMapper();
         try {
@@ -116,7 +125,8 @@ public class Controller {
     }
 
     /**
-     * postCustomerHandler, putCustomerHandler, not working.
+     * Retrieve all existing customers
+     * @param context
      */
     private void getAllCustomersHandler(Context context) {
         List<Customer> customerList = inventoryService.getAllCustomers();
@@ -124,6 +134,10 @@ public class Controller {
         context.json(customerList);
     }
 
+    /**
+     * Retrieve all customers from specific city
+     * @param context
+     */
     private void getAllCustomersByCityHandler(Context context) {
         String city = context.pathParam("city");
         List<Customer> customerByCityList = inventoryService.getAllCustomersByCity(city);
@@ -134,6 +148,11 @@ public class Controller {
         }
     }
 
+    /**
+     * Add new customer
+     * @param context
+     * @throws JsonProcessingException
+     */
     private void postCustomerHandler(Context context) throws JsonProcessingException {
         ObjectMapper om = new ObjectMapper();
         try {
@@ -147,6 +166,10 @@ public class Controller {
         }
     }
 
+    /**
+     * Update existing customer's record
+     * @param context
+     */
     private void putCustomerHandler(Context context) {
         ObjectMapper om = new ObjectMapper();
         try {

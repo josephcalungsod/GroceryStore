@@ -17,6 +17,10 @@ public class OrderDAO {
     public OrderDAO (Connection conn){ this.conn = conn; }
     Order order;
 
+    /**
+     * Add item to cart
+     * @param order
+     */
     public void addItemToCart(Order order) {
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO orders ( orderContent, orderDate, customerId) VALUES (?, ?, ?)");

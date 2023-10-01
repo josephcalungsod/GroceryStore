@@ -7,9 +7,9 @@ A Maven web application to manage, track, and access inventory and customer deta
 - **localhost:8080**
   - `/inventory` - Get all inventory info.
   - `/inventory/apple` - Get inventory by item, such as apple, banana...
-  - `/inventory/type/produce` - Get inventory by type, such as produce, meat...
+  - `/inventory/type/{type}` - Get inventory by type, such as produce, meat...
   - `/customer` - Get all customer info.
-  - `/customer/1` - Get customer's info by ID.(1, 2, 3...)/by city/by name/by zip code
+  - `/customer/city/{city}` - Get customer's info by ID.(1, 2, 3...)/by city/by name/by zip code
 
 ## Key Features
 

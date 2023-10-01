@@ -2,6 +2,7 @@ package Service;
 
 import DAO.CustomerDAO;
 import Model.Customer;
+import Util.LogUtil;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class CustomerService {
      */
     public CustomerService(CustomerDAO customerDAO) {
         this.customerDAO = customerDAO;
+        LogUtil.log.info("setting up customer service");
     }
 
     /**
@@ -27,6 +29,7 @@ public class CustomerService {
      */
     public void addCustomer(Customer customer) {
         customerDAO.addCustomer(customer);
+        LogUtil.log.info("adding customer");
     }
 
     /**
@@ -36,6 +39,7 @@ public class CustomerService {
      */
     public void deleteCustomer(Customer customer) {
         customerDAO.deleteCustomer(customer);
+        LogUtil.log.info("deleting customer");
     }
 
     /**
@@ -45,6 +49,7 @@ public class CustomerService {
      */
     public void updateCustomer(Customer customer) {
         customerDAO.updateCustomer(customer);
+        LogUtil.log.info("updating customer");
     }
 
     /**
@@ -54,6 +59,7 @@ public class CustomerService {
      * @return The customer with the specified ID, or null if not found.
      */
     public Customer getCustomerById(int customerId) {
+        LogUtil.log.info("getting customer by ID");
         return customerDAO.getCustomerById(customerId);
     }
 
@@ -64,6 +70,7 @@ public class CustomerService {
      * @return A list of customers with the specified first name.
      */
     public List<Customer> getAllCustomersByFirstName(String customerFirstName) {
+        LogUtil.log.info("getting all customers by first name");
         return customerDAO.getAllCustomersByFirstName(customerFirstName);
     }
 
@@ -74,6 +81,7 @@ public class CustomerService {
      * @return A list of customers with the specified last name.
      */
     public List<Customer> getAllCustomersByLastName(String customerLastName) {
+        LogUtil.log.info("getting all customers by last name");
         return customerDAO.getAllCustomersByLastName(customerLastName);
     }
 
@@ -84,6 +92,7 @@ public class CustomerService {
      * @return A list of customers in the specified city.
      */
     public List<Customer> getAllCustomersByCity(String city) {
+        LogUtil.log.info("getting all customers by city");
         return customerDAO.getAllCustomersByCity(city);
     }
 
@@ -93,6 +102,7 @@ public class CustomerService {
      * @return A list of all customers in the database.
      */
     public List<Customer> getAllCustomers() {
+        LogUtil.log.info("getting all customers");
         return customerDAO.getAllCustomers();
     }
 }

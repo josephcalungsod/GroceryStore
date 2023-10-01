@@ -24,6 +24,7 @@ public class InventoryService {
      */
     public InventoryService(InventoryDAO inventoryDAO) {
         this.inventoryDAO = inventoryDAO;
+        LogUtil.log.info("setting up inventory service");
     }
 
     /**
@@ -33,6 +34,7 @@ public class InventoryService {
      */
     public void addItem(Inventory inventory) {
         inventoryDAO.addItem(inventory);
+        LogUtil.log.info("adding customer");
     }
 
     /**
@@ -42,6 +44,7 @@ public class InventoryService {
      * @return The inventory item with the specified name, or null if not found.
      */
     public Inventory getItemByName(String item) {
+        LogUtil.log.info("getting item by name");
         return inventoryDAO.getItemByName(item);
     }
 
@@ -52,6 +55,7 @@ public class InventoryService {
      */
     public void deleteItem(String item) {
         inventoryDAO.deleteItem(item);
+        LogUtil.log.info("deleting item");
     }
 
     /**
@@ -61,6 +65,7 @@ public class InventoryService {
      */
     public void updateItem(Inventory inventory) {
         inventoryDAO.updateItem(inventory);
+        LogUtil.log.info("updating item");
     }
 
     /**
@@ -69,6 +74,7 @@ public class InventoryService {
      * @return A list of all inventory items in the database.
      */
     public List<Inventory> getAllItems() {
+        LogUtil.log.info("getting all items in inventory");
         return inventoryDAO.getAllItems();
     }
 
@@ -79,6 +85,7 @@ public class InventoryService {
      * @return A list of inventory items with the specified type.
      */
     public List<Inventory> getAllItemsByType(String type) {
+        LogUtil.log.info("getting all items by type");
         return inventoryDAO.getAllItemsByType(type);
     }
 
@@ -88,6 +95,7 @@ public class InventoryService {
      * @return A list of all customers in the database.
      */
     public List<Customer> getAllCustomers() {
+        LogUtil.log.info("getting all customers");
         return inventoryDAO.getAllCustomers();
     }
 
@@ -98,6 +106,7 @@ public class InventoryService {
      */
     public void updateCustomer(Customer customer) {
         inventoryDAO.updateCustomer(customer);
+        LogUtil.log.info("updating customer");
     }
 
     /**
@@ -107,6 +116,7 @@ public class InventoryService {
      */
     public void addCustomer(Customer customer) {
         inventoryDAO.addCustomer(customer);
+        LogUtil.log.info("adding customer");
     }
 
     /**
@@ -116,6 +126,7 @@ public class InventoryService {
      * @return A list of customers in the specified city.
      */
     public List<Customer> getAllCustomersByCity(String city) {
+        LogUtil.log.info("getting all customers by city");
         return inventoryDAO.getAllCustomersByCity(city);
     }
 }

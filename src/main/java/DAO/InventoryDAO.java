@@ -155,7 +155,9 @@ public class InventoryDAO {
     public List<Inventory> getAllItemsByType(String type) {
         List<Inventory> inventoryList = new ArrayList<>();
         try {
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM grocery_store where type=?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM grocery_store " +
+                    "inner join grocery_info " +
+                    "ON grocery_store.item = grocery_info.item where type = ?");
             ps.setString(1, type);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -164,7 +166,10 @@ public class InventoryDAO {
                 String dbType = rs.getString("type");
                 double dbPrice = rs.getDouble("price");
                 int dbQuantity = rs.getInt("quantity");
-                Inventory dbInventory = new Inventory(dbItem, dbType, dbPrice, dbQuantity);
+                String dbFarm_name = rs.getString("Farm_name");
+                String dbBrand = rs.getString("Brand");
+                String dbContact = rs.getString("Contact");
+                Inventory dbInventory = new Inventory(dbItem, dbType, dbPrice, dbQuantity, dbFarm_name, dbBrand, dbContact);
                 inventoryList.add(dbInventory);
             }
         } catch (SQLException e) {

@@ -47,6 +47,15 @@ public class Inventory {
         this.brand = brand;
         this.contact = contact;
     }
+    public Inventory(String item, String type, double price, int quantity, String farm_name, String brand, String contact) {
+        this.item = item;
+        this.type = type;
+        this.price = price;
+        this.quantity = quantity;
+        this.farm_name = farm_name;
+        this.brand = brand;
+        this.contact = contact;
+    }
 
     /**
      * Constructs an Inventory object with the item name and quantity.

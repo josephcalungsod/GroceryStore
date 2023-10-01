@@ -1,6 +1,7 @@
-drop table if exists  grocery_info ;
+drop table if exists grocery_info ;
 drop table if exists grocery_store ;
 drop table if exists customer ;
+drop table if exists orders ;
 
 create table if not exists grocery_store
 (
@@ -65,85 +66,85 @@ CREATE TABLE IF NOT EXISTS grocery_info (
 );
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('apple', 'Farm_Apple', 'Apple Brand', '111-111-1111');
+VALUES ('apple', 'naboo_fruit_garden', 'Apple Brand', '111-111-1111');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('banana', 'Farm_Banana', 'Banana Brand', '222-222-2222');
+VALUES ('banana', 'naboo_fruit_garden', 'Banana Brand', '222-222-2222');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('milk', 'Farm_Milk', 'Milk Brand', '333-333-3333');
+VALUES ('milk', 'mos_eisley_cow_farm', 'Milk Brand', '333-333-3333');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('eggs', 'Farm_Eggs', 'Eggs Brand', '444-444-4444');
+VALUES ('eggs', 'skywalker_ranch', 'Eggs Brand', '444-444-4444');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('steak', 'Farm_Steak', 'Steak Brand', '555-555-5555');
+VALUES ('steak', 'skywalker_ranch', 'Steak Brand', '555-555-5555');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('chicken', 'Farm_Chicken', 'Chicken Brand', '666-666-6666');
+VALUES ('chicken', 'skywalker_ranch', 'Chicken Brand', '666-666-6666');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('pork', 'Farm_Pork', 'Pork Brand', '777-777-7777');
+VALUES ('pork', 'dantooine_swine', 'Pork Brand', '777-777-7777');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('diapers', 'Farm_Diapers', 'Diapers Brand', '888-888-8888');
+VALUES ('diapers', '', '', '888-888-8888');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('baby_bottle', 'Farm_Baby_Bottle', 'Baby Bottle Brand', '999-999-9999');
+VALUES ('baby_bottle', '', 'Baby Bottle Brand', '999-999-9999');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('formula', 'Farm_Formula', 'Formula Brand', '000-000-0000');
+VALUES ('formula', 'kessel', 'Formula Brand', '000-000-0000');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('rice', 'Farm_Rice', 'Rice Brand', '111-111-1111');
+VALUES ('rice', '', 'Rice Brand', '111-111-1111');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('taco_shells', 'Farm_Taco_Shells', 'Taco Shells Brand', '222-222-2222');
+VALUES ('taco_shells', '', 'Taco Shells Brand', '222-222-2222');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('spaghetti', 'Farm_Spaghetti', 'Spaghetti Brand', '333-333-3333');
+VALUES ('spaghetti', '', 'Spaghetti Brand', '333-333-3333');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('fettuccine', 'Farm_Fettuccine', 'Fettuccine Brand', '444-444-4444');
+VALUES ('fettuccine', '', 'Fettuccine Brand', '444-444-4444');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('lollipop', 'Farm_Lollipop', 'Lollipop Brand', '555-555-5555');
+VALUES ('lollipop', '', 'Lollipop Brand', '555-555-5555');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('kit_kat', 'Farm_Kit_Kat', 'Kit Kat Brand', '666-666-6666');
+VALUES ('kit_kat', '', 'Kit Kat Brand', '666-666-6666');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('jolly_ranchers', 'Farm_Jolly_Ranchers', 'Jolly Ranchers Brand', '777-777-7777');
+VALUES ('jolly_ranchers', '', 'Jolly Ranchers Brand', '777-777-7777');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('dog_food', 'Farm_Dog_Food', 'Dog Food Brand', '888-888-8888');
+VALUES ('dog_food', 'lothal_feed', 'Dog Food Brand', '888-888-8888');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('cat_food', 'Farm_Cat_Food', 'Cat Food Brand', '999-999-9999');
+VALUES ('cat_food', 'lothal_feed', 'Cat Food Brand', '999-999-9999');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('cat_litter', 'Farm_Cat_Litter', 'Cat Litter Brand', '000-000-0000');
+VALUES ('cat_litter', '', 'Cat Litter Brand', '000-000-0000');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('soap', 'Farm_Soap', 'Soap Brand', '111-111-1111');
+VALUES ('soap', '', 'Soap Brand', '111-111-1111');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('toothpaste', 'Farm_Toothpaste', 'Toothpaste Brand', '222-222-2222');
+VALUES ('toothpaste', '', 'Toothpaste Brand', '222-222-2222');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('shampoo', 'Farm_Shampoo', 'Shampoo Brand', '333-333-3333');
+VALUES ('shampoo', '', 'Shampoo Brand', '333-333-3333');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('paper_towels', 'Farm_Paper_Towels', 'Paper Towels Brand', '444-444-4444');
+VALUES ('paper_towels', 'kashyyyk_forests', 'Paper Towels Brand', '444-444-4444');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('toilet_paper', 'Farm_Toilet_Paper', 'Toilet Paper Brand', '555-555-5555');
+VALUES ('toilet_paper', 'kashyyyk_forests', 'Toilet Paper Brand', '555-555-5555');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('paper_plates', 'Farm_Paper_Plates', 'Paper Plates Brand', '666-666-6666');
+VALUES ('paper_plates', 'kashyyyk_forests', 'Paper Plates Brand', '666-666-6666');
 
 INSERT INTO grocery_info (Item, Farm_name, Brand, Contact)
-VALUES ('napkins', 'Farm_Napkins', 'Napkins Brand', '777-777-7777');
+VALUES ('napkins', 'kashyyyk_forests', 'Napkins Brand', '777-777-7777');
 
 
 create table if not exists customer (
