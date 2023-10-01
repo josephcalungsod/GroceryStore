@@ -26,6 +26,8 @@ public class CustomerServiceTest {
      */
     @Before
     public void setUp() {
+        //reset the database for each operation of database
+        ConnectionSingleton.resetTestDatabase();
         // Initialize customerDAO with a test database connection
         customerDAO = new CustomerDAO(conn); // Replace with your actual implementation
 

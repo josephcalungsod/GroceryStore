@@ -11,11 +11,9 @@ import java.util.List;
  * This class contains test cases for the CustomerDAO class.
  */
 public class CustomerDAOTest extends TestCase {
-
     Connection conn;
     CustomerDAO customerDAO;
     Customer customer;
-
     /**
      * Set up the test environment by creating a database connection and initializing the CustomerDAO.
      *
@@ -23,10 +21,13 @@ public class CustomerDAOTest extends TestCase {
      */
     protected void setUp() throws Exception {
         super.setUp();
+        //reset the database for each operation of database
+        ConnectionSingleton.resetTestDatabase();
+        //connect database
         conn = ConnectionSingleton.getConnection();
+        //instantiate a CustomerDAO object
         customerDAO = new CustomerDAO(conn);
     }
-
     /**
      * Tear down the test environment.
      *
@@ -35,13 +36,12 @@ public class CustomerDAOTest extends TestCase {
     protected void tearDown() throws Exception {
         super.tearDown();
     }
-
     /**
      * Test the addCustomer method by adding a customer and checking if the customer ID is not null.
      */
     public void testAddCustomer() {
         // Create a customer to add
-        Customer customer = new Customer("John", "Doe", "New York", 10001);
+        Customer customer = new Customer("Tom", "Doe", "New York", 10001);
 
         // Add the customer to the database
         customerDAO.addCustomer(customer);
@@ -49,7 +49,6 @@ public class CustomerDAOTest extends TestCase {
         // Check if the customer ID is not null
         assertNotNull(customer.getCustomerId());
     }
-
     /**
      * Test the deleteCustomer method by adding a customer, deleting it, and checking if it no longer exists in the database.
      */
@@ -64,7 +63,6 @@ public class CustomerDAOTest extends TestCase {
         // Check if the customer no longer exists in the database
         assertNull(customerDAO.getCustomerById(customer.getCustomerId()));
     }
-
     /**
      * Test the updateCustomer method by updating a customer's information and checking if it has changed in the database.
      */
@@ -84,7 +82,6 @@ public class CustomerDAOTest extends TestCase {
         // Check if the updated customer is not the same as the expected customer
         Assert.assertNotSame(actual, expected);
     }
-
     /**
      * Test the getCustomerById method by retrieving a customer by ID and checking if the first name matches the expected value.
      */
@@ -101,7 +98,6 @@ public class CustomerDAOTest extends TestCase {
         // Check if the actual first name matches the expected first name
         assertEquals(expected, actual);
     }
-
     /**
      * Test the getAllCustomersByFirstName method by adding customers with the same first name and checking if they are retrieved correctly.
      */
@@ -121,7 +117,6 @@ public class CustomerDAOTest extends TestCase {
         assertNotNull(customers);
         assertTrue(customers.size() >= 2);
     }
-
     /**
      * Test the getAllCustomersByLastName method by adding customers with the same last name and checking if they are retrieved correctly.
      */
@@ -141,30 +136,24 @@ public class CustomerDAOTest extends TestCase {
         assertNotNull(customers);
         assertTrue(customers.size() >= 2);
     }
-
     /**
      * Test the getAllCustomers method by retrieving all customers from the database and counting them.
      */
     public void testGetAllCustomers() {
         // Retrieve all customers from the database
         List<Customer> customerList = customerDAO.getAllCustomers();
-
         // Initialize a counter to count the customers
         int counter = 0;
-
         // Count the customers
         for (Customer customer1 : customerList) {
-            counter++;
+           counter++;
         }
-
         // Expected number of customers
         int expected = 3;
-
         // Check if the actual number of customers matches the expected number
         int actual = counter;
         assertEquals(expected, actual);
     }
-
     /**
      * Test the getAllCustomersByCity method by retrieving customers from the database by a specific city and counting them.
      */

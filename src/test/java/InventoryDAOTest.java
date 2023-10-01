@@ -19,6 +19,8 @@ public class InventoryDAOTest extends TestCase {
      */
     public void setUp() throws Exception {
         super.setUp();
+        //reset the database for each operation of database
+        ConnectionSingleton.resetTestDatabase();
     }
 
     /**

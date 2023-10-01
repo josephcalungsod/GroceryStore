@@ -1,5 +1,5 @@
-drop table if exists grocery_store ;
 drop table if exists  grocery_info ;
+drop table if exists grocery_store ;
 drop table if exists customer ;
 
 create table if not exists grocery_store

@@ -12,11 +12,16 @@ import java.util.List;
  * The InventoryServiceTest class contains test cases for the InventoryService class.
  */
 public class InventoryServiceTest extends TestCase {
+    public void setUp() throws Exception {
+        super.setUp();
+        //reset the database for each operation of database
+        ConnectionSingleton.resetTestDatabase();
+
+    }
     Connection conn = ConnectionSingleton.getConnection();
-    Inventory inventory;
     InventoryDAO inventoryDAO = new InventoryDAO(conn);
     InventoryService inventoryService = new InventoryService(inventoryDAO);
-
+    Inventory inventory;
     /**
      * Test case to verify the addItem method of the InventoryService class.
      */
@@ -41,8 +46,10 @@ public class InventoryServiceTest extends TestCase {
      * Test case to verify the deleteItem method of the InventoryService class.
      */
     public void testDeleteItem() {
-        inventoryService.deleteItem("banana");
-        Inventory actual = inventoryService.getItemByName("banana");
+        //since there is a foreign key associated with this table, wecan only delete
+        //a item not existed in another table.
+        inventoryService.deleteItem("fish");
+        Inventory actual = inventoryService.getItemByName("fish");
         Inventory expected = null;
         Assert.assertEquals(expected, actual);
     }
