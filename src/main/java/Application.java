@@ -7,11 +7,16 @@ import Model.Inventory;
 import Service.CustomerService;
 import Service.InventoryService;
 import Util.ConnectionSingleton;
+import  Model.Order;
+import DAO.OrderDAO;
+import Service.OrderService;
 
+import java.security.Provider;
 import java.sql.*;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.util.Date;
 /**
  * The Application class is the entry point for the grocery store management application.
  */
@@ -43,7 +48,8 @@ public class Application {
                     "\n(9) Get Customer by ID" +
                     "\n(10) Get all customers by first name" +
                     "\n(11) Get all customers by last name" +
-                    "\n(12) Get all customers by city");
+                    "\n(12) Get all customers by city"+
+                    "\n(13) Get orders by customer id");
 
             int response = scan.nextInt();
 
@@ -159,6 +165,39 @@ public class Application {
 
                 System.out.println("\n");
                 System.out.println(customerList);
+            }else if (response == 13){
+                System.out.println("(13) QUERY: Enter your customer id: ");
+                int customerId = scan.nextInt();
+
+                ArrayList<String> orderContent = new ArrayList<>();
+
+                System.out.println("Enter your order: ");
+
+                while (true) {
+                    System.out.print("Enter an item: ");
+                    String item = scan.next();
+                    orderContent.add(item);
+
+                    System.out.print("Enter more (y/n): ");
+                    String more = scan.next();
+                    if (more.equalsIgnoreCase("n")) {
+                        break;
+                    }
+                }
+                // Get the current date
+                Date orderDate = new Date();
+                // Instantiate the Order class with the collected information
+                Order order = new Order(orderDate, orderContent, customerId);
+                System.out.println("Customer ID is: "+customerId+
+                                "\n your order id is: "+1+order.getOrderId()+
+                                "\n your order date is: "+order.getOrderDate()+
+                                "\n your order is: "+order.getOrderContent());
+                Customer customer=customerService.getCustomerById(customerId);
+                System.out.println("customer first name is: "+customer.getCustomerFirstName()+
+                        "\n customer last name is: "+customer.getCustomerLastName() );
+
+                        // Close the scanner when done
+                //scan.close();
             } else {
                 // Invalid choice
                 System.out.println("\n");

@@ -1,6 +1,7 @@
 package Service;
 
 import DAO.OrderDAO;
+import Model.Customer;
 import Model.Order;
 
 import java.util.List;
@@ -9,14 +10,15 @@ public class OrderService {
     private OrderDAO orderDAO;
 
     public OrderService(OrderDAO orderDAO){
-        this.orderDAO = orderDAO;
+        this.orderDAO=orderDAO;
     }
 
     public void addItemToCart(Order order){
         orderDAO.addItemToCart(order);
     }
+
     public void removeItemFromCart(String item){
-        orderDAO.removeItemFromCart(item);
+//        orderDAO.removeItemFromCart(item);
 
     }
     public void updateItemInCart(Order order){

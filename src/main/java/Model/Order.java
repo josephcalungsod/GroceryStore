@@ -1,16 +1,24 @@
 package Model;
+
+import javax.xml.crypto.Data;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Order {
 
     private int orderId;
 //    orderDate format: YYYYMMDD
-    private int orderDate;
+    private Date orderDate;
+    private ArrayList<String> orderContent;
     private int customerId;
 
 
-    public Order (int orderId, int orderDate, int customerId) {
+    public Order ( Date orderDate, ArrayList<String> orderContent, int customerId) {
         this.orderId = orderId;
         this.orderDate = orderDate;
         this.customerId = customerId;
+        this.orderContent=orderContent;
     }
 
     public int getOrderId() {
@@ -21,11 +29,11 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public int getOrderDate() {
+    public Date getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(int orderDate) {
+    public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
 
@@ -42,7 +50,18 @@ public class Order {
         return "Order{" +
                 "orderId=" + orderId +
                 ", orderDate=" + orderDate +
+                ", order_content=" + orderContent +
                 ", customerId=" + customerId +
                 '}';
     }
-}
+
+    public ArrayList<String> getOrderContent() {
+        return orderContent;
+    }
+
+    public void setOrderContent(ArrayList<String> orderContent) {
+        this.orderContent = orderContent;
+    }
+
+    }
+

@@ -1224,3 +1224,93 @@ VALUES ('steak', 'Farm_Steak', 'Steak Brand', '555-555-5555') [21002-214]
 	at Util.ConnectionSingleton.resetTestDatabase(ConnectionSingleton.java:64)
 	at Util.ConnectionSingleton.getConnection(ConnectionSingleton.java:44)
 	at Application.main(Application.java:20)
+2023-10-01 14:42:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORDERS" already exists; SQL statement:
+
+
+CREATE TABLE orders (
+                        orderId INT PRIMARY KEY auto_increment,
+                        orderDate DATE,
+                        orderContent TEXT,
+                        customerId IN [42101-214]
+2023-10-01 14:46:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORDERS" already exists; SQL statement:
+
+
+CREATE TABLE orders (
+                        orderId INT PRIMARY KEY auto_increment,
+                        orderDate DATE,
+                        orderContent TEXT,
+                        customerId IN [42101-214]
+2023-10-01 14:51:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORDERS" already exists; SQL statement:
+
+
+CREATE TABLE orders (
+                        orderId INT PRIMARY KEY auto_increment,
+                        orderDate DATE,
+                        orderContent TEXT,
+                        customerId IN [42101-214]
+2023-10-01 14:52:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORDERS" already exists; SQL statement:
+
+
+CREATE TABLE orders (
+                        orderId INT PRIMARY KEY auto_increment,
+                        orderDate DATE,
+                        orderContent TEXT,
+                        customerId IN [42101-214]
+2023-10-01 14:53:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORDERS" already exists; SQL statement:
+
+
+CREATE TABLE orders (
+                        orderId INT PRIMARY KEY auto_increment,
+                        orderDate DATE,
+                        orderContent TEXT,
+                        customerId IN [42101-214]
+2023-10-01 14:55:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORDERS" already exists; SQL statement:
+
+
+CREATE TABLE orders (
+                        orderId INT PRIMARY KEY auto_increment,
+                        orderDate DATE,
+                        orderContent TEXT,
+                        customerId IN [42101-214]
+2023-10-01 14:55:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORDERS" already exists; SQL statement:
+
+
+CREATE TABLE orders (
+                        orderId INT PRIMARY KEY auto_increment,
+                        orderDate DATE,
+                        orderContent TEXT,
+                        customerId IN [42101-214]
+2023-10-01 14:58:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORDERS" already exists; SQL statement:
+
+
+CREATE TABLE orders (
+                        orderId INT PRIMARY KEY auto_increment,
+                        orderDate DATE,
+                        orderContent TEXT,
+                        customerId IN [42101-214]
+2023-10-01 15:53:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORDERS" already exists; SQL statement:
+
+
+CREATE TABLE orders (
+                        orderId INT PRIMARY KEY auto_increment,
+                        orderDate DATE,
+                        orderContent TEXT,
+                        customerId IN [42101-214]
+2023-10-01 15:57:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ORDERS" already exists; SQL statement:
+
+
+CREATE TABLE orders (
+                        orderId INT PRIMARY KEY auto_increment,
+                        orderDate DATE,
+                        orderContent TEXT,
+                        customerId IN [42101-214]

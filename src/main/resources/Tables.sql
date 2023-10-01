@@ -158,3 +158,10 @@ insert into customer(first_name, last_name, city, zip_code) values ('han', 'solo
 insert into customer(first_name, last_name, city, zip_code) values ('leia', 'organa', 'alderaan', 11111);
 insert into customer(first_name, last_name, city, zip_code) values ('luke', 'skywalker', 'tatooine', 22222);
 
+CREATE TABLE orders (
+                        orderId INT PRIMARY KEY auto_increment,
+                        orderDate DATE,
+                        orderContent TEXT,
+                        customerId INT
+);
+
