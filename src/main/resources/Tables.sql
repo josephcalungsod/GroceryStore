@@ -1,6 +1,6 @@
-drop table grocery_store if exists;
-drop table grocery_info if exists;
-drop table customer if exists;
+drop table if exists grocery_store ;
+drop table if exists  grocery_info ;
+drop table if exists customer ;
 
 create table if not exists grocery_store
 (
@@ -56,18 +56,95 @@ insert into grocery_store (Item, Type, Price, Quantity) values ('napkins', 'pape
 
 
 CREATE TABLE IF NOT EXISTS grocery_info (
-    item_id INT unique ,
-    Item VARCHAR(255) NOT NULL primary key,
+    item_id INT primary key,
+    Item VARCHAR(255) NOT NULL UNIQUE,
     farm_name VARCHAR(255),
     brand VARCHAR(255),
-    contact VARCHAR(255)
+    contact VARCHAR(255),
+    FOREIGN KEY (Item) REFERENCES grocery_store(Item)
 );
 
-insert into grocery_info(Item_id, Item, Farm_name, Brand, Contact)values (1, 'apple','farm_1','new','111-222-2222');
-insert into grocery_info(Item_id, Item, Farm_name, Brand, Contact)values (2, 'banana','farm_2','new','222-222-2222');
-insert into grocery_info(Item_id, Item, Farm_name, Brand, Contact)values (3, 'orange','farm_3','new','333-222-2222');
-insert into grocery_info(Item_id, Item, Farm_name, Brand, Contact)values (4, 'tomato','farm_4','new','555-222-2222');
-insert into grocery_info(Item_id, Item, Farm_name, Brand, Contact)values (5, 'carrot','farm_5','new','');
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (1, 'apple', 'Farm_Apple', 'Apple Brand', '111-111-1111');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (2, 'banana', 'Farm_Banana', 'Banana Brand', '222-222-2222');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (3, 'milk', 'Farm_Milk', 'Milk Brand', '333-333-3333');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (4, 'eggs', 'Farm_Eggs', 'Eggs Brand', '444-444-4444');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (5, 'steak', 'Farm_Steak', 'Steak Brand', '555-555-5555');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (6, 'chicken', 'Farm_Chicken', 'Chicken Brand', '666-666-6666');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (7, 'pork', 'Farm_Pork', 'Pork Brand', '777-777-7777');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (8, 'diapers', 'Farm_Diapers', 'Diapers Brand', '888-888-8888');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (9, 'baby_bottle', 'Farm_Baby_Bottle', 'Baby Bottle Brand', '999-999-9999');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (10, 'formula', 'Farm_Formula', 'Formula Brand', '000-000-0000');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (11, 'rice', 'Farm_Rice', 'Rice Brand', '111-111-1111');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (12, 'taco_shells', 'Farm_Taco_Shells', 'Taco Shells Brand', '222-222-2222');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (13, 'spaghetti', 'Farm_Spaghetti', 'Spaghetti Brand', '333-333-3333');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (14, 'fettuccine', 'Farm_Fettuccine', 'Fettuccine Brand', '444-444-4444');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (15, 'lollipop', 'Farm_Lollipop', 'Lollipop Brand', '555-555-5555');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (16, 'kit_kat', 'Farm_Kit_Kat', 'Kit Kat Brand', '666-666-6666');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (17, 'jolly_ranchers', 'Farm_Jolly_Ranchers', 'Jolly Ranchers Brand', '777-777-7777');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (18, 'dog_food', 'Farm_Dog_Food', 'Dog Food Brand', '888-888-8888');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (19, 'cat_food', 'Farm_Cat_Food', 'Cat Food Brand', '999-999-9999');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (20, 'cat_litter', 'Farm_Cat_Litter', 'Cat Litter Brand', '000-000-0000');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (21, 'soap', 'Farm_Soap', 'Soap Brand', '111-111-1111');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (22, 'toothpaste', 'Farm_Toothpaste', 'Toothpaste Brand', '222-222-2222');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (23, 'shampoo', 'Farm_Shampoo', 'Shampoo Brand', '333-333-3333');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (24, 'paper_towels', 'Farm_Paper_Towels', 'Paper Towels Brand', '444-444-4444');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (25, 'toilet_paper', 'Farm_Toilet_Paper', 'Toilet Paper Brand', '555-555-5555');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (26, 'paper_plates', 'Farm_Paper_Plates', 'Paper Plates Brand', '666-666-6666');
+
+INSERT INTO grocery_info (item_id, Item, Farm_name, Brand, Contact)
+VALUES (27, 'napkins', 'Farm_Napkins', 'Napkins Brand', '777-777-7777');
+
 
 create table if not exists customer (
     customer_id int unique not null primary key auto_increment,
