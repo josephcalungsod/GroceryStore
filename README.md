@@ -1,4 +1,6 @@
-# Grocery Store Inventory System
+# Web API connected to a database.
+
+# Grocery Store Inventory System.
 
 A Maven web application to manage, track, and access inventory and customer details for a grocery store. It can work both locally (in CLI) and remotely (on Postman).
 
