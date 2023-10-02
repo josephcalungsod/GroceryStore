@@ -1,17 +1,17 @@
-<h1># Web API connected to a database.</h1>
+# <h1># Web API connected to a database.</h1>
 
-<h2># Grocery Store Inventory System.</h2>
+# <h2># Grocery Store Inventory System.</h2>
 
 A Maven web application to manage, track, and access inventory and customer details for a grocery store. It can work both locally (in CLI) and remotely (on Postman).
 
-<h3>## Endpoints</h3>
+## <h3>## Endpoints</h3>
 
 - **localhost:8080**
   - `/inventory` - Get all inventory info.
-  - `/inventory/apple` - Get inventory by item, such as apple, banana...
+  - `/inventory/` - Get inventory by item, such as apple, banana...
   - `/inventory/type/{type}` - Get inventory by type, such as produce, meat...
   - `/customer` - Get all customer info.
-  - `/customer/city/{city}` - Get customer's info by ID.(1, 2, 3...)/by city/by name/by zip code
+  - `/customer/city/{city}` - Get customer's info by city
 
 <h4>## Key Features</h4>
 

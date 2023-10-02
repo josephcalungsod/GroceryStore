@@ -18,7 +18,6 @@ import java.util.List;
  */
 public class Controller {
     private InventoryService inventoryService;
-//    CustomerService customerService;
 
     /**
      * Initializes the Controller with an InventoryService.
@@ -28,8 +27,6 @@ public class Controller {
     public Controller(InventoryService inventoryService) {
         this.inventoryService = inventoryService;
     }
-
-    //    public ControllerCustomer(CustomerService customerService) { this.customerService = customerService;}
 
     /**
      * Retrieves the Javalin API instance for this controller.
