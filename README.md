@@ -4,7 +4,7 @@
 
 A Maven web application to manage, track, and access inventory and customer details for a grocery store. It can work both locally (in CLI) and remotely (on Postman).
 
-## Endpoints
+<h3>## Endpoints</h3>
 
 - **localhost:8080**
   - `/inventory` - Get all inventory info.
@@ -13,9 +13,9 @@ A Maven web application to manage, track, and access inventory and customer deta
   - `/customer` - Get all customer info.
   - `/customer/city/{city}` - Get customer's info by ID.(1, 2, 3...)/by city/by name/by zip code
 
-## Key Features
+<h4>## Key Features</h4>
 
-### Inventory Management
+<h4>### Inventory Management</h4>
 
 1. **Add New Item**
    - Add items seamlessly.
@@ -73,7 +73,7 @@ A Maven web application to manage, track, and access inventory and customer deta
      - Brand
      - Contact Info
 
-### Customer Management
+<h4>### Customer Management</h4>
 
 7. **Add Customer**
    - Register new customers to the system.
@@ -129,7 +129,7 @@ A Maven web application to manage, track, and access inventory and customer deta
       - City
       - Zip Code
 
-## Database Architecture
+<h4>## Database Architecture</h4>
 
 Our system is backed by three main tables:
 
