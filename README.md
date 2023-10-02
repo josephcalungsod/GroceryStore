@@ -1,4 +1,4 @@
-# Web API connected to a database.
+<h1># Web API connected to a database.</h1>
 
 <h2># Grocery Store Inventory System.</h2>
 
