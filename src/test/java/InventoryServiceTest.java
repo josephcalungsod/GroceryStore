@@ -1,3 +1,4 @@
+import Model.Customer;
 import Model.Inventory;
 import Service.InventoryService;
 import Util.ConnectionSingleton;
@@ -7,6 +8,9 @@ import org.junit.Assert;
 
 import java.sql.Connection;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 /**
  * The InventoryServiceTest class contains test cases for the InventoryService class.
@@ -22,6 +26,7 @@ public class InventoryServiceTest extends TestCase {
     InventoryDAO inventoryDAO = new InventoryDAO(conn);
     InventoryService inventoryService = new InventoryService(inventoryDAO);
     Inventory inventory;
+    Customer customer;
     /**
      * Test case to verify the addItem method of the InventoryService class.
      */
@@ -84,4 +89,31 @@ public class InventoryServiceTest extends TestCase {
         String expected = "apple";
         Assert.assertEquals(expected, actual);
     }
+    public void testGetAllCustomers(){
+        List<Customer> customerList = inventoryService.getAllCustomers();
+        int i=0;
+        for(Customer customer:customerList){
+            i++;
+        }
+        int expected=3;
+        int actual=i;
+        assertEquals(actual, expected);
+
+    }
+    public void testUpdateCustomer(){
+
+        customer = new Customer(1,"aaa", "bbb", "atlanta", 12321);
+        inventoryService.updateCustomer(customer);
+        String city = "corellia";
+        List<Customer> actual = inventoryService.getAllCustomersByCity(city);
+        Customer expected = customer;
+        assertNotEquals(actual, expected);
+
+    }
+//    public void testAddCustomer(){
+//
+//    }
+//    public void testGetAllCustomersByCity(){
+//
+//    }
 }

@@ -1,17 +1,13 @@
 import Controller.Controller;
 import DAO.CustomerDAO;
 import DAO.InventoryDAO;
-import Exceptions.NoProductFoundException;
 import Model.Customer;
 import Model.Inventory;
 import Service.CustomerService;
 import Service.InventoryService;
 import Util.ConnectionSingleton;
 import  Model.Order;
-import DAO.OrderDAO;
-import Service.OrderService;
 
-import java.security.Provider;
 import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;

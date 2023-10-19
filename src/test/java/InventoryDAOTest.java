@@ -1,4 +1,5 @@
 import DAO.InventoryDAO;
+import Model.Customer;
 import Model.Inventory;
 import Util.ConnectionSingleton;
 import junit.framework.Assert;
@@ -36,6 +37,7 @@ public class InventoryDAOTest extends TestCase {
     Connection conn = ConnectionSingleton.getConnection();
     InventoryDAO inventoryDAO = new InventoryDAO(conn);
     Inventory inventory;
+    Customer customer;
 
     /**
      * Test case to verify the addItem method of the InventoryDAO class.
@@ -89,5 +91,15 @@ public class InventoryDAOTest extends TestCase {
         List<Inventory> inventoryList = inventoryDAO.getAllItems();
         Assert.assertNotNull(inventoryList);
         Assert.assertFalse(inventoryList.isEmpty());
+    }
+    public void testAddCustomer(){
+        customer = new Customer("joe", "schmoe", "somewhere", 99999);
+        String item = inventory.getItem();
+        inventoryDAO.addItem(inventory);
+        double actual = inventoryDAO.getItemByName(item).getPrice();
+        double expected = 11.1;
+        Assert.assertEquals(actual, expected);
+
+
     }
 }

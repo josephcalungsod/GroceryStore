@@ -236,61 +236,8 @@ public class InventoryDAO {
         return customerList;
     }
 
-    /**
-     * Get a list of customers by first name.
-     *
-     * @param customerFirstName The first name to filter by.
-     * @return A List of Customer objects with the specified first name.
-     */
-    public List<Customer> getAllCustomersByFirstName(String customerFirstName) {
-        List<Customer> customerList = new ArrayList<>();
-        try {
-            PreparedStatement ps = conn.prepareStatement("select * from customer where first_name=?");
-            ps.setString(1, customerFirstName);
 
-            ResultSet rs = ps.executeQuery();
 
-            while (rs.next()) {
-                int dbCustomerId = rs.getInt("customer_id");
-                String dbCustomerFirstName = rs.getString("first_name");
-                String dbCustomerLastName = rs.getString("last_name");
-                String dbCustomerCity = rs.getString("city");
-                int dbCustomerZip = rs.getInt("zip_code");
-                Customer dbCustomerList = new Customer(dbCustomerId, dbCustomerFirstName, dbCustomerLastName, dbCustomerCity, dbCustomerZip);
-                customerList.add(dbCustomerList);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return customerList;
-    }
-
-    /**
-     * Get a list of customers by last name.
-     *
-     * @param customerLastName The last name to filter by.
-     * @return A List of Customer objects with the specified last name.
-     */
-    public List<Customer> getAllCustomersByLastName(String customerLastName) {
-        List<Customer> customerList = new ArrayList<>();
-        try {
-            PreparedStatement ps = conn.prepareStatement("select * from customer where last_name=?");
-            ps.setString(1, customerLastName);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                int dbCustomerId = rs.getInt("customer_id");
-                String dbCustomerFirstName = rs.getString("first_name");
-                String dbCustomerLastName = rs.getString("last_name");
-                String dbCustomerCity = rs.getString("city");
-                int dbCustomerZip = rs.getInt("zip_code");
-                Customer dbCustomerList = new Customer(dbCustomerId, dbCustomerFirstName, dbCustomerLastName, dbCustomerCity, dbCustomerZip);
-                customerList.add(dbCustomerList);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return customerList;
-    }
 
     /**
      * Update customer information by customer ID.
